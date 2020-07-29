@@ -1,0 +1,167 @@
+﻿<Controls:MetroWindow
+    x:Class="PlugY_Configurator.Views.AboutView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:loc="clr-namespace:WpfLocalization"
+    xmlns:local="clr-namespace:PlugY_Configurator.ViewModels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resx="clr-namespace:PlugY_Configurator.Resources.Translation"
+    Title="{loc:Loc AboutProg}"
+    Width="580"
+    MaxHeight="291"
+    loc:Translation.ResourceManager="{x:Static resx:lang.ResourceManager}"
+    BorderBrush="{DynamicResource AccentColorBrush}"
+    BorderThickness="1"
+    GlowBrush="Black"
+    IsMinButtonEnabled="False"
+    ResizeMode="NoResize"
+    ShowCloseButton="True"
+    ShowIconOnTitleBar="False"
+    ShowInTaskbar="False"
+    ShowMaxRestoreButton="False"
+    ShowMinButton="False"
+    ShowTitleBar="True"
+    SizeToContent="Height"
+    WindowStartupLocation="CenterOwner"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+        <Style BasedOn="{StaticResource MahApps.Styles.TextBlock}" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="0,0,0,10" />
+        </Style>
+    </Window.Resources>
+
+    <Controls:MetroAnimatedSingleRowTabControl
+        Controls:TabControlHelper.Transition="LeftReplace"
+        Controls:TabControlHelper.Underlined="TabPanel"
+        TabStripPlacement="Left">
+
+        <TabItem Header="{loc:Loc About_TabTitle1}">
+            <TabItem.Resources>
+                <Style BasedOn="{StaticResource MahApps.Styles.TextBlock}" TargetType="{x:Type TextBlock}">
+                    <Setter Property="TextWrapping" Value="Wrap" />
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="Margin" Value="0,0,0,2" />
+                </Style>
+            </TabItem.Resources>
+            <StackPanel Margin="10,10,10,10" Orientation="Vertical">
+                <StackPanel
+                    x:Name="MainPanel"
+                    Margin="0,0,0,0"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+
+                    <Image
+                        Width="64"
+                        Height="64"
+                        Margin="0,0,10,5"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        RenderOptions.BitmapScalingMode="Fant"
+                        Source="/Resources/Images/Icon.2_28.png" />
+
+                    <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
+
+                        <TextBlock Text="PlugY Configurator" />
+
+                        <TextBlock Text="Copyright © 2020 Raf-9600" />
+
+                        <TextBlock Text="Email: ">
+                            <Hyperlink NavigateUri="mailto:Raf9600@GMail.com?subject=Предложение работы" RequestNavigate="Hyperlink_RequestNavigate">Raf9600@GMail.com</Hyperlink>
+                        </TextBlock>
+
+                    </StackPanel>
+                </StackPanel>
+
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Text="{loc:Loc AboutProg_Description}"
+                    TextWrapping="Wrap" />
+
+            </StackPanel>
+        </TabItem>
+
+        <TabItem Header="{loc:Loc About_TabTitle2}">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="10">
+                    <TextBlock>
+                        <Run FontWeight="Bold" Text="Yohann Nicolas" />
+                        <Run Text="{loc:Loc ThanksYohannNicolas}" />
+                        <Hyperlink NavigateUri="http://plugy.free.fr/en/index.html" RequestNavigate="Hyperlink_RequestNavigate">PlugY</Hyperlink>
+                    </TextBlock>
+
+                    <TextBlock>
+                        <Run FontWeight="Bold" Text="L`Autour" />
+                        <Run Text="{loc:Loc ThanksLAutour}" />
+                    </TextBlock>
+
+                    <TextBlock>
+                        <Run FontWeight="Bold" Text="kambala" />
+                        <Run Text="{loc:Loc ThanksKambala}" />
+                    </TextBlock>
+
+                    <TextBlock>
+                        <Run FontWeight="Bold" Text="David" />
+                        <Run Text="{loc:Loc ThanksDavid}" />
+                    </TextBlock>
+
+
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+
+        <TabItem Header="{loc:Loc About_TabTitle3}">
+
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="10">
+                    <TextBlock>
+                        <Run FontWeight="Bold" Text="Lorc 700+ RPG icons" />
+                        <LineBreak />
+                        <Hyperlink NavigateUri="https://www.reddit.com/r/IndieGaming/comments/ifmie/i_made_700_rpg_icons_free_for_use_for_your_game/" RequestNavigate="Hyperlink_RequestNavigate">https://www.reddit.com/r/IndieGaming/comments/ifmie/</Hyperlink>
+                        <LineBreak />
+                        <Run Text="License:" />
+                        <Hyperlink NavigateUri="https://creativecommons.org/licenses/by/3.0/" RequestNavigate="Hyperlink_RequestNavigate">Creative Commons Attribution 3.0 Unported</Hyperlink>
+                    </TextBlock>
+
+                    <TextBlock>
+                        <Run FontWeight="Bold" Text="MahApps.Metro" />
+                        <LineBreak />
+                        <Hyperlink NavigateUri="https://github.com/MahApps/MahApps.Metro" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/MahApps/MahApps.Metro</Hyperlink>
+                        <LineBreak />
+                        <Run Text="License:" ToolTip="{loc:Loc LicenseMIT_Text}" />
+                        <Hyperlink
+                            NavigateUri="https://github.com/MahApps/MahApps.Metro/blob/develop/LICENSE"
+                            RequestNavigate="Hyperlink_RequestNavigate"
+                            ToolTip="{loc:Loc LicenseMIT_Text}">
+                            MIT
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <TextBlock>
+                        <Run FontWeight="Bold" Text="MahApps.Metro.IconPacks" />
+                        <LineBreak />
+                        <Hyperlink NavigateUri="https://github.com/MahApps/MahApps.Metro.IconPacks" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/MahApps/MahApps.Metro.IconPacks</Hyperlink>
+                        <LineBreak />
+                        <Run Text="License:" ToolTip="{loc:Loc LicenseMIT_Text}" />
+                        <Hyperlink
+                            NavigateUri="https://github.com/MahApps/MahApps.Metro.IconPacks/blob/develop/LICENSE"
+                            RequestNavigate="Hyperlink_RequestNavigate"
+                            ToolTip="{loc:Loc LicenseMIT_Text}">
+                            MIT
+                        </Hyperlink>
+                    </TextBlock>
+
+                </StackPanel>
+            </ScrollViewer>
+
+        </TabItem>
+
+    </Controls:MetroAnimatedSingleRowTabControl>
+
+</Controls:MetroWindow>
