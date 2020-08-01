@@ -21,7 +21,7 @@ namespace PlugY_Configurator.Models
             if (!down) return false;
 
             var result = DoWork(false);
-
+            
             bool? DoWork(bool checkDate)
             {
                 if (File.Exists(updateFile))
