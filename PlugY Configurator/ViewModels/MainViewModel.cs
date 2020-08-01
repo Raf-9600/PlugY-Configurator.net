@@ -20,6 +20,7 @@ using System.Windows.Controls;
 using ControlzEx.Theming;
 using System.Collections.ObjectModel;
 using PlugY_Configurator.Resources.Translation;
+using System.Diagnostics;
 
 namespace PlugY_Configurator.ViewModels
 {
@@ -196,14 +197,28 @@ namespace PlugY_Configurator.ViewModels
             }
         }
 
+        public class UpdateStruct
+        {
+            public string Date { get; set; }
+            public string Ver { get; set; }
+
+            public UpdateStruct(string date, string ver)
+            {
+                Date = date;
+                Ver = ver;
+            }
+        }
 
         public MainViewModel()
         {
+            UpdateStruct updateJson = new UpdateStruct(DateTime.Today.ToString(), System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            string updateSerialize = System.Text.Json.JsonSerializer.Serialize(updateJson, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(@"R:\upd.json", updateSerialize);
+
             // Если в Винде тёмная тема, то включаем её и в программе
             if (!_model.DetectLightTheme())
-            {
                 ThemeManager.Current.ChangeTheme(System.Windows.Application.Current, "Dark.Crimson");
-            }
+            
 
             DpiScale dpi = VisualTreeHelper.GetDpi(new System.Windows.Controls.Control());
             double screenRealWidth = SystemParameters.PrimaryScreenWidth * dpi.DpiScaleX;
@@ -265,12 +280,11 @@ namespace PlugY_Configurator.ViewModels
             {
                 return new RelayCommand<RoutedEventArgs>(async (args) =>
                 {
-                    {
                         // Выравниваем окно по центру
                         Rect workArea = System.Windows.SystemParameters.WorkArea;
                         Application.Current.MainWindow.Left = (workArea.Width - Application.Current.MainWindow.ActualWidth) / 2 + workArea.Left;
                         Application.Current.MainWindow.Top = (workArea.Height - Application.Current.MainWindow.ActualHeight) / 2 + workArea.Top;
-                    }
+
                 });
             }
         }
@@ -281,6 +295,18 @@ namespace PlugY_Configurator.ViewModels
             {
                 return new RelayCommand<EventArgs>(async (args) =>
                 {
+                    System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+                    dispatcherTimer.Tick += (sender, args) =>
+                    {
+                        if (_model.UpdateFind())
+                            NewVer_Visab = Visibility.Visible;
+                        else NewVer_Visab = Visibility.Collapsed;
+
+                        dispatcherTimer.Stop();
+                    };
+
+                    dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+                    dispatcherTimer.Start();
 
                 });
             }
@@ -319,7 +345,6 @@ namespace PlugY_Configurator.ViewModels
             }
         }
 
-
         public double _mainWindowWidth = 1330;
         public double MainWindowWidth
         {
@@ -343,6 +368,36 @@ namespace PlugY_Configurator.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        private ICommand _newVer_Click;
+        public ICommand NewVer_Click
+        {
+            get
+            {
+                return _newVer_Click ?? (_newVer_Click = new RelayCommand(() =>
+                {
+                    var psi = new ProcessStartInfo
+                    {
+                        FileName = @"https://github.com/Raf-9600/PlugY-Configurator/releases",
+                        UseShellExecute = true
+                    };
+                    Process.Start(psi);
+
+                }));
+            }
+        }
+
+        public Visibility _newVer_Visab = Visibility.Collapsed;
+        public Visibility NewVer_Visab
+        {
+            get { return _newVer_Visab; }
+            set
+            {
+                _newVer_Visab = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
         private ICommand _plugYRefresh_Click;
@@ -360,8 +415,6 @@ namespace PlugY_Configurator.ViewModels
                 }));
             }
         }
-
-
 
         #region LaunchParam_Flyout
         private bool _param_Flyout_Open;
@@ -472,11 +525,11 @@ namespace PlugY_Configurator.ViewModels
             {
                 _gameParam_WindowMode = value;
 
-                if (value) 
+                if (value)
                     Param = _model.AddParam(Param, "-w");
                 else Param = Param.Replace("-w", "");
 
-                    OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -492,7 +545,7 @@ namespace PlugY_Configurator.ViewModels
                     Param = _model.AddParam(Param, "-nofixaspect");
                 else Param = Param.Replace("-nofixaspect", "");
 
-                    OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -508,7 +561,7 @@ namespace PlugY_Configurator.ViewModels
                     Param = _model.AddParam(Param, "-direct");
                 else Param = Param.Replace("-direct", "");
 
-                    OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -524,7 +577,7 @@ namespace PlugY_Configurator.ViewModels
                     Param = _model.AddParam(Param, "-txt");
                 else Param = Param.Replace("-txt", "");
 
-                    OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -540,7 +593,7 @@ namespace PlugY_Configurator.ViewModels
                     Param = _model.AddParam(Param, "-ns");
                 else Param = Param.Replace("-ns", "");
 
-                    OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -556,7 +609,7 @@ namespace PlugY_Configurator.ViewModels
                     Param = _model.AddParam(Param, "-sndbkg");
                 else Param = Param.Replace("-sndbkg", "");
 
-                    OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -572,7 +625,7 @@ namespace PlugY_Configurator.ViewModels
                     Param = _model.AddParam(Param, "-skiptobnet");
                 else Param = Param.Replace("-skiptobnet", "");
 
-                    OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -588,7 +641,7 @@ namespace PlugY_Configurator.ViewModels
                     Param = _model.AddParam(Param, "-nosave");
                 else Param = Param.Replace("-nosave", "");
 
-                    OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -604,7 +657,7 @@ namespace PlugY_Configurator.ViewModels
                     Param = _model.AddParam(Param, "-3dfx");
                 else Param = Param.Replace("-3dfx", "");
 
-                    OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
         #endregion

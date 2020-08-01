@@ -32,10 +32,9 @@ namespace PlugY_Configurator
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
-            var targetURL = e.Uri.AbsoluteUri;
             var psi = new ProcessStartInfo
             {
-                FileName = targetURL,
+                FileName = e.Uri.AbsoluteUri,
                 UseShellExecute = true
             };
             Process.Start(psi);

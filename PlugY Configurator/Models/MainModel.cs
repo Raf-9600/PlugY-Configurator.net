@@ -9,6 +9,97 @@ namespace PlugY_Configurator.Models
 {
     class MainModel
     {
+        public bool UpdateFind()
+        {
+            string updateFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Raf-9600", "PlugY Configurator", "update.json");
+            string updateUrl = @"https://raw.githubusercontent.com/Raf-9600/PlugY-Configurator/master/PlugY%20Configurator/update.json";
+
+            var dw = DoWork(true);
+            if (dw != null) return dw ?? false;
+
+            bool down = DownloadNewFile(updateUrl, updateFile);
+            if (!down) return false;
+
+            var result = DoWork(false);
+
+            bool? DoWork(bool checkDate)
+            {
+                if (File.Exists(updateFile))
+                {
+                    try
+                    {
+                        string updateFileStr = File.ReadAllText(updateFile);
+                        UpdateStruct updateJson = JsonSerializer.Deserialize<UpdateStruct>(updateFileStr);
+                        {
+                            var versionExe = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                            var versionJson = new Version(updateJson.Ver);
+
+                            if (versionJson > versionExe) return true;
+
+                            if (checkDate)
+                            {
+                                var dateToday = DateTime.Today;
+                                var dateJson = DateTime.Parse(updateJson.Date);
+                                var dateJsonWeek = dateJson.AddDays(7);
+
+                                if (dateJsonWeek > dateToday) return false;
+                            }
+                            else
+                            {
+                                updateJson.Date = DateTime.Today.ToString();
+
+                                string updateSerialize = JsonSerializer.Serialize(updateJson, new JsonSerializerOptions { WriteIndented = true });
+                                File.WriteAllText(updateFile, updateSerialize);
+                            }
+                        }
+                    }
+                    catch (System.Exception ex)
+                    { }
+                }
+                return null;
+            }
+
+            return result ?? false;
+        }
+
+        [Serializable]
+        public struct UpdateStruct
+        {
+            public string Date { get; set; }
+            public string Ver { get; set; }
+
+            public UpdateStruct(string date, string ver)
+            {
+                Date = date;
+                Ver = ver;
+            }
+        }
+
+        private bool DownloadNewFile(string WebPath, string DestPath)
+        {
+            string dp = Path.GetDirectoryName(DestPath);
+            string destPathTemp = Path.Combine(dp, Path.GetRandomFileName());
+            Directory.CreateDirectory(dp);
+            File.Delete(destPathTemp);
+            try
+            {
+                using System.Net.WebClient client = new System.Net.WebClient();
+                client.DownloadFile(WebPath, destPathTemp);
+            }
+            catch (Exception)
+            { }
+
+            if (File.Exists(destPathTemp))
+            {
+                File.Delete(DestPath);
+                File.Move(destPathTemp, DestPath);
+                return true;
+            }
+            return false;
+        }
+
+
+
         public string FindWorkDir(string nameFile)
         {
             string fullPath = Path.Combine(Directory.GetCurrentDirectory(), nameFile);

@@ -49,7 +49,54 @@
         <Controls:WindowCommands>
 
             <Button
-                Margin="7,0"
+                Margin="0,0,0,0"
+                VerticalAlignment="Center"
+                BorderThickness="0"
+                Command="{Binding NewVer_Click}"
+                FontFamily="Lucida Console"
+                FontSize="20"
+                Foreground="White"
+                Visibility="{Binding NewVer_Visab, Mode=OneWay}">
+                <WrapPanel VerticalAlignment="Center">
+                    <iconPacks:PackIconMaterial
+                        Width="24"
+                        Height="27"
+                        Margin="4,0,4,1"
+                        VerticalAlignment="Center"
+                        Foreground="Blue"
+                        Kind="AlarmLightOutline">
+                        <iconPacks:PackIconMaterial.Triggers>
+                            <EventTrigger RoutedEvent="iconPacks:PackIconMaterial.Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard
+                                        AutoReverse="True"
+                                        FillBehavior="Stop"
+                                        RepeatBehavior="Forever"
+                                        SpeedRatio="0.3">
+                                        <ColorAnimation
+                                            BeginTime="0:0:0"
+                                            Storyboard.TargetProperty="(iconPacks:PackIconMaterial.Foreground).(SolidColorBrush.Color)"
+                                            To="Yellow" />
+                                        <ColorAnimation
+                                            BeginTime="0:0:1"
+                                            Storyboard.TargetProperty="(iconPacks:PackIconMaterial.Foreground).(SolidColorBrush.Color)"
+                                            To="Lime" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </iconPacks:PackIconMaterial.Triggers>
+                    </iconPacks:PackIconMaterial>
+
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Text="[Найдено обновление]" />
+
+                </WrapPanel>
+            </Button>
+
+            <Button
+                Margin="0,0,7,0"
                 VerticalAlignment="Center"
                 Command="{Binding PlugYRefresh_Click}"
                 ToolTip="{Binding PlugyFullPath}">
