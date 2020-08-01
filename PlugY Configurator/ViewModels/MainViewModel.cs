@@ -197,7 +197,7 @@ namespace PlugY_Configurator.ViewModels
             }
         }
 
-        public class UpdateStruct
+        public struct UpdateStruct
         {
             public string Date { get; set; }
             public string Ver { get; set; }
@@ -211,7 +211,7 @@ namespace PlugY_Configurator.ViewModels
 
         public MainViewModel()
         {
-            UpdateStruct updateJson = new UpdateStruct(DateTime.Today.ToString(), System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            UpdateStruct updateJson = new UpdateStruct(null, System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
             string updateSerialize = System.Text.Json.JsonSerializer.Serialize(updateJson, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(@"R:\upd.json", updateSerialize);
 
