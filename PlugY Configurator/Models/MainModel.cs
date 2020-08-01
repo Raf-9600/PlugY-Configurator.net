@@ -11,11 +11,12 @@ namespace PlugY_Configurator.Models
     {
         public bool UpdateFind()
         {
+/*
 #if RELEASE
             UpdateStruct updateJson = new UpdateStruct(null, System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
             string updateSerialize = System.Text.Json.JsonSerializer.Serialize(updateJson, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "update.json"), updateSerialize);
-#endif
+#endif*/
 
             string updateFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Raf-9600", "PlugY Configurator", "update.json");
             string updateUrl = @"https://raw.githubusercontent.com/Raf-9600/PlugY-Configurator/master/PlugY%20Configurator/update.json";
