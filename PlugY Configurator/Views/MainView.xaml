@@ -12,7 +12,7 @@
     xmlns:resx="clr-namespace:PlugY_Configurator.Resources.Translation"
     Title="PlugY Configurator"
     Width="{Binding MainWindowWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-    Height="585"
+    Height="595"
     loc:Translation.ResourceManager="{x:Static resx:lang.ResourceManager}"
     BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
     BorderThickness="1"
@@ -90,7 +90,7 @@
                     <TextBlock
                         VerticalAlignment="Center"
                         FontSize="20"
-                        Text="[Найдено обновление]" />
+                        Text="{loc:Loc UpdateFound}" />
 
                 </WrapPanel>
             </Button>
@@ -240,6 +240,11 @@
         MaxWidth="{Binding ContentMainWindowWidth, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
         Controls:TabControlHelper.Transition="LeftReplace"
         Controls:TabControlHelper.Underlined="None">
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Drop">
+                <i:InvokeCommandAction Command="{Binding EventDrop}" PassEventArgsToCommand="True" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
         <TabItem Header="{loc:Loc MainTab1Name}">
             <TabItem.Resources>
                 <Style TargetType="{x:Type Controls:NumericUpDown}">
@@ -251,6 +256,7 @@
                     <Setter Property="HorizontalAlignment" Value="Right" />
                     <Setter Property="Controls:TextBoxHelper.UseFloatingWatermark" Value="True" />
                 </Style>
+
             </TabItem.Resources>
 
             <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
@@ -395,7 +401,7 @@
                                 <CheckBox
                                     Content="{loc:Loc ActiveSkillsUnassignment}"
                                     IsChecked="{Binding ActiveSkillsUnassignment}"
-                                    ToolTip="{loc:Loc SkillsAllowReset_Hint}" />
+                                    ToolTip="{loc:Loc ActiveSkillsUnassignment_Hint}" />
                                 <CheckBox
                                     Content="{loc:Loc ActiveSkillPerLevelUp}"
                                     IsChecked="{Binding ActiveSkillPerLevelUp}"

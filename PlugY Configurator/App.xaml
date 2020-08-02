@@ -19,12 +19,18 @@
                 <Setter Property="Margin" Value="0,3,0,3" />
                 <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.Accent}" />
                 <Setter Property="FontSize" Value="14" />
+                <Style.Resources>
+                    <SolidColorBrush x:Key="MahApps.Brushes.Highlight" Color="{DynamicResource MahApps.Colors.AccentBase}" />
+                </Style.Resources>
             </Style>
 
             <Style BasedOn="{StaticResource MahApps.Styles.RadioButton}" TargetType="{x:Type RadioButton}">
                 <Setter Property="Margin" Value="0,3,0,3" />
                 <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.Accent}" />
                 <Setter Property="FontSize" Value="14" />
+                <Style.Resources>
+                    <SolidColorBrush x:Key="MahApps.Brushes.Highlight" Color="{DynamicResource MahApps.Colors.AccentBase}" />
+                </Style.Resources>
             </Style>
 
             <Style TargetType="{x:Type Controls:MetroHeader}">

@@ -160,16 +160,16 @@
     <value>Дополнительная библиотека:</value>
   </data>
   <data name="DllToLoad_Hint" xml:space="preserve">
-    <value>Укажите .dll файл который вы хотите подключить к игре. Если вы хотите подключить несколько .dll то разделяйте их символом вертикальной черты. Пример: BaseMod.dll|D2extra.dll|myD2.dll</value>
+    <value>Укажите .dll файл который вы хотите подключить к игре. Если вы хотите подключить несколько .dll, то разделяйте их символом вертикальной черты. Пример: BaseMod.dll|D2extra.dll|myD2.dll</value>
   </data>
   <data name="ActiveLaunchAnyNumberOfLOD" xml:space="preserve">
     <value>Разрешить запуск нескольких экземпляров игры</value>
   </data>
   <data name="ActiveLaunchAnyNumberOfLOD_Hint" xml:space="preserve">
-    <value>Вы получите возможность запуска неограниченного количества экземпляров игры. Не активируйте данную опцию без реальной необходимости. Помните, что если вы из разных экземпляров игры будете одновременно менять содержимого одного и того же сундука или будете использовать одного и того же персонажа, то это может привести к негативным последствиям.</value>
+    <value>Вы получите возможность запуска неограниченного количества экземпляров игры. Не активируйте данную опцию без реальной необходимости. Помните, что если вы из разных экземпляров игры будете одновременно менять содержимое одного и того же сундука или будете использовать одного и того же персонажа, то это может привести к негативным последствиям.</value>
   </data>
   <data name="ActiveCowPortalWhenCowKingWasKilled" xml:space="preserve">
-    <value>Разрешить повторно заходить на коровий уровень</value>
+    <value>Разрешить повторно заходить на Коровий уровень</value>
   </data>
   <data name="ActiveCowPortalWhenCowKingWasKilled_Hint" xml:space="preserve">
     <value>По умолчанию, после убийства Короля Коров и выхода из игр, портал в Коровий Уровень будет закрыт. Если вы активируете данную опцию, то он не закроется.</value>
@@ -178,7 +178,7 @@
     <value>Всегда отображать счётчик продаж ИК</value>
   </data>
   <data name="ShowCounterInAllDifficulty_Hint" xml:space="preserve">
-    <value>По умолчанию сообщение что «Иорданов камень» продан, появляется лишь на сложности «Ад». Активировав данную опцию, сообщение будет появляться на любом уровне сложности.</value>
+    <value>По умолчанию, сообщение что «Иорданов камень» продан, появляется лишь на сложности «Ад». Активировав данную опцию, сообщение будет появляться на любом уровне сложности.</value>
   </data>
   <data name="SelectMainPageOnOpenning" xml:space="preserve">
     <value>Всегда открывать главную страницу характеристик</value>
@@ -591,7 +591,7 @@
     <value>Макс.</value>
   </data>
   <data name="EnabledTXTFilesWhenMSExcelOpenIt" xml:space="preserve">
-    <value>Совместимость с Microsoft Exel</value>
+    <value>Совместимость с Microsoft Excel</value>
   </data>
   <data name="EnabledTXTFilesWhenMSExcelOpenIt_Hint" xml:space="preserve">
     <value>Файлы игры .txt будут доступны игре даже если они открыты в MS Excel.</value>
@@ -787,5 +787,8 @@
   </data>
   <data name="PlugYiniNotFound_Question" xml:space="preserve">
     <value>Укажете месторасположение PlugY.ini?</value>
+  </data>
+  <data name="UpdateFound" xml:space="preserve">
+    <value>[Найдено обновление]</value>
   </data>
 </root>

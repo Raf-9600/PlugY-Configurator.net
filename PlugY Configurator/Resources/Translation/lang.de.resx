@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutProg" xml:space="preserve">
+    <value>Über das Programm</value>
+  </data>
+  <data name="AboutProg_Description" xml:space="preserve">
+    <value>Ich nehme Aufträge zur Erstellung von Programmen und zum Umpacken von Spielen an. Kooperationsangebote bitte per E-Mail (bitte nur auf Russisch).</value>
+  </data>
+  <data name="About_TabTitle1" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="About_TabTitle2" xml:space="preserve">
+    <value>Besonderer Dank</value>
+  </data>
+  <data name="About_TabTitle3" xml:space="preserve">
+    <value>Genutzte Werke</value>
+  </data>
+  <data name="Act1" xml:space="preserve">
+    <value>Erster (Charakterlevel 1)</value>
+  </data>
+  <data name="Act2" xml:space="preserve">
+    <value>Zweiter (Charakterlevel 16)</value>
+  </data>
+  <data name="Act3" xml:space="preserve">
+    <value>Dritter (Charakterlevel 21)</value>
+  </data>
+  <data name="Act4" xml:space="preserve">
+    <value>Vierter (Charakterlevel 27)</value>
+  </data>
+  <data name="Act5" xml:space="preserve">
+    <value>Fünfter (Charakterlevel 33)</value>
+  </data>
+  <data name="ActInitial" xml:space="preserve">
+    <value>Erster Akt</value>
+  </data>
+  <data name="ActInitial_Hint" xml:space="preserve">
+    <value>In welchem Akt sollten neu erstellte Charaktere erscheinen?</value>
+  </data>
+  <data name="ActiveCommands" xml:space="preserve">
+    <value>Zusätzliche Befehle im Spiel</value>
+  </data>
+  <data name="DllToLoad" xml:space="preserve">
+    <value>Zusätzliche Bibliotheken:</value>
+  </data>
+  <data name="DllToLoad_Hint" xml:space="preserve">
+    <value>Geben Sie die .dll-Datei an, die Sie zum Spiel anbinden möchten. Wenn Sie mehrere .dlls anbinden, dann trennen Sie diese mit einem vertikalen Liniensymbol. Beispiel: BaseMod.dll|D2extra.dll|myD2.dll</value>
+  </data>
+  <data name="ActiveLaunchAnyNumberOfLOD" xml:space="preserve">
+    <value>Mehrere Spielinstanzen parallel ausführen</value>
+  </data>
+  <data name="ActiveLaunchAnyNumberOfLOD_Hint" xml:space="preserve">
+    <value>Es wird möglich sein eine unbegrenzte Anzahl von Kopien des Spiels gleichzeitig auszuführen. Aktivieren Sie diese Option nur wenn Sie das wirklich brauchen. Denken Sie daran, dass es negative Folgen haben kann, wenn Sie aus verschiedenen Kopien des Spiels den Inhalt derselben Truhe zur gleichen Zeit ändern oder z. B. denselben Charakter verwenden.</value>
+  </data>
+  <data name="ActiveCowPortalWhenCowKingWasKilled" xml:space="preserve">
+    <value>Wiederholtes Eintreten des Kuhlevels erlauben</value>
+  </data>
+  <data name="ActiveCowPortalWhenCowKingWasKilled_Hint" xml:space="preserve">
+    <value>Wenn Sie den König der Kühe töten, können Sie das Kuh-Portal standardmäßig nicht mehr mit dem verwendeten Schwierigkeitsgrad des Spiels wieder öffnen. Wenn Sie diese Option aktivieren, wird das Portal nicht geschlossen, so dass Sie diess Level auf jeden Fall wieder besuchen können.</value>
+  </data>
+  <data name="ShowCounterInAllDifficulty" xml:space="preserve">
+    <value>Den Verkaufzähler des Stein von Jordan immer zeigen</value>
+  </data>
+  <data name="ShowCounterInAllDifficulty_Hint" xml:space="preserve">
+    <value>Standardmäßig erscheint die Meldung nur bei der Schwierigkeit "Hölle", dass der Stein von Jordan verkauft wurde. Wenn Sie diese Option aktivieren, erscheint die Meldung bei jedem Schwierigkeitsgrad.</value>
+  </data>
+  <data name="SelectMainPageOnOpenning" xml:space="preserve">
+    <value>Immer den ersten Tab der Einstellungen öffnen</value>
+  </data>
+  <data name="SelectMainPageOnOpenning_Hint" xml:space="preserve">
+    <value>Standardmäßig merkt sich PlugY, welcher Einstellungstab zuletzt geöffnet wurde, und wenn Sie das nächste Mal Einstellungen öffnen, werden diese es auf der Seite angezeigt, die Sie vor dem Schließen zuletzt angesehen haben. Wenn Sie möchten, dass PlugY nicht den zuletzt geöffneten Einstellungstab speichert und immer die erste Seite gezeigt wird, dann aktivieren Sie diese Option.</value>
+  </data>
+  <data name="PrintButtonsBackgroundOnMainStatsPage" xml:space="preserve">
+    <value>Die Seitenwechselschaltflächen haben einen Rahmen</value>
+  </data>
+  <data name="ActiveVersionTextChange" xml:space="preserve">
+    <value>Angezeige Spielversion ändern</value>
+  </data>
+  <data name="ActiveChangeLanguage" xml:space="preserve">
+    <value>Die aktive Übersetzung ändern</value>
+  </data>
+  <data name="ActiveChangeLanguage_Hint" xml:space="preserve">
+    <value>Wenn Ihr Spiel mehrere Sprachen installiert hat, können Sie diese Option verwenden, um eine davon zu aktivieren.</value>
+  </data>
+  <data name="STASH" xml:space="preserve">
+    <value>Die Truhe</value>
+  </data>
+  <data name="ChestButtons" xml:space="preserve">
+    <value>Schaltflächen der True</value>
+  </data>
+  <data name="ActiveSharedGold" xml:space="preserve">
+    <value>Gemeinsames Gold in der Truhe für alle Charaktere</value>
+  </data>
+  <data name="ActiveSharedGold_Hint" xml:space="preserve">
+    <value>Standardmäßig ist das Gold in der Truhe für jeden Ihrer Charaktere extra. Wenn Sie diese Option aktivieren, teilen alle Ihre Charaktere das Gold gemeinsam.</value>
+  </data>
+  <data name="PutGoldBtn" xml:space="preserve">
+    <value>Gold in die gemeinsame Truhe legen</value>
+  </data>
+  <data name="TakeGoldBtn" xml:space="preserve">
+    <value>Gold aus der gemeinsamen Truhe nehmen</value>
+  </data>
+  <data name="SharedBtn" xml:space="preserve">
+    <value>Gehe zur gemeinsamen Truhe über</value>
+  </data>
+  <data name="ActiveMultiPageStash" xml:space="preserve">
+    <value>Die Truhe hat mehrere Seiten</value>
+  </data>
+  <data name="ActiveMultiPageStash_Hint" xml:space="preserve">
+    <value>Von Haus aus hat die True nur eine Seite.</value>
+  </data>
+  <data name="MaxPersonnalPages" xml:space="preserve">
+    <value>Anzahl der persönlichen Seiten:</value>
+  </data>
+  <data name="MaxPersonnalPages_Hint" xml:space="preserve">
+    <value>Die Anzahl der persönlichen Seiten der Truhe für jeden Charakter wird auf diese Anzahl begrenzt.</value>
+  </data>
+  <data name="MaxSharedPages" xml:space="preserve">
+    <value>Anzahl der gemeinsamen Seiten:</value>
+  </data>
+  <data name="MaxSharedPages_Hint" xml:space="preserve">
+    <value>Anzahl der gemeinsamen Seiten für alle Charakteren.</value>
+  </data>
+  <data name="ActiveSharedStash" xml:space="preserve">
+    <value>Die Truhe für alle Charaktere gemeinsam machen</value>
+  </data>
+  <data name="ActiveSharedStash_Hint" xml:space="preserve">
+    <value>Fügt einen Schalter zu zusätzlichen Seiten in der Truhe hinzu, mit dem gemeinsamen Inhalt für alle Ihre Charaktere.</value>
+  </data>
+  <data name="SeparateHardcoreStash" xml:space="preserve">
+    <value>Extra gesonderte True für sterbliche Charaktere</value>
+  </data>
+  <data name="SeparateHardcoreStash_Hint" xml:space="preserve">
+    <value>Sterbliche Charaktere können nicht auf den Inhalt der Truhe normaler Charaktere zugreifen.</value>
+  </data>
+  <data name="SharedStashFilename" xml:space="preserve">
+    <value>Der Name für die Datei zum Speichern der Truhe</value>
+  </data>
+  <data name="SharedStashFilename_Hint" xml:space="preserve">
+    <value>Name der Datei, in der der Inhalt der Truhe gespeichert wird. Bitte beachten Sie, dass durch die Eingabe eines neuen Dateinamens die bereits bestehende Datei nicht umbenannt wird, Sie müssen dies manuell machen.</value>
+  </data>
+  <data name="DisplaySharedSetItemNameInGreen" xml:space="preserve">
+    <value>Set Gegenstände in der True grün zeigen</value>
+  </data>
+  <data name="DisplaySharedSetItemNameInGreen_Hint" xml:space="preserve">
+    <value>Beim Zeigen der Eigenschaften eines Set Gegenstandes wird der Name des Gegenstandes, der sich in der Truhe befinden, grün angezeigt.</value>
+  </data>
+  <data name="ActiveBigStash" xml:space="preserve">
+    <value>Die Truhe größer machen</value>
+  </data>
+  <data name="NbPagesPerIndex" xml:space="preserve">
+    <value>Seiten der True blättern:</value>
+  </data>
+  <data name="NbPagesPerIndex2" xml:space="preserve">
+    <value>Seiten blättern mit Shift:</value>
+  </data>
+  <data name="NbPagesPerIndex2_Hint" xml:space="preserve">
+    <value>Wenn Sie die Shift-Taste gedrückt halten und in der True blättern, wird die von Ihnen eingestellte Anzahl Seiten umgeblättert.</value>
+  </data>
+  <data name="NbPagesPerIndex_Hint" xml:space="preserve">
+    <value>Eine spezielle Schaltfläche zum Blättern durch mehrere Seiten der Truhe, blättert die von Ihnen angegebene Anzahl von Seiten.</value>
+  </data>
+  <data name="ColorBlue" xml:space="preserve">
+    <value>Blau</value>
+  </data>
+  <data name="ColorDarkGray" xml:space="preserve">
+    <value>Dunkelgrau</value>
+  </data>
+  <data name="ColorDarkGreen" xml:space="preserve">
+    <value>Dunkelgrün</value>
+  </data>
+  <data name="ColorDarkYellow" xml:space="preserve">
+    <value>Dunkelgelb</value>
+  </data>
+  <data name="ColorDeepDarkGreen" xml:space="preserve">
+    <value>Sattes Dunkelgrün</value>
+  </data>
+  <data name="ColorGold" xml:space="preserve">
+    <value>Gold</value>
+  </data>
+  <data name="ColorGreen" xml:space="preserve">
+    <value>Grün</value>
+  </data>
+  <data name="ColorOrange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="ColorPurple" xml:space="preserve">
+    <value>Magenta</value>
+  </data>
+  <data name="ColorRed" xml:space="preserve">
+    <value>Rot</value>
+  </data>
+  <data name="ColorTransparent" xml:space="preserve">
+    <value>Transparent</value>
+  </data>
+  <data name="ColorWhite" xml:space="preserve">
+    <value>Weiss</value>
+  </data>
+  <data name="ColorYellow" xml:space="preserve">
+    <value>Gelb</value>
+  </data>
+  <data name="DisableBattleNet" xml:space="preserve">
+    <value>Zugang zu Battle.net sperren</value>
+  </data>
+  <data name="DisableBattleNet_Hint" xml:space="preserve">
+    <value>Wenn Sie PlugY nutzen, wird vom Zugang zum Spieldienst Battle.net dringend abgeraten, da dies wahrscheinlich dazu führt, dass Ihr Account beim Dienst gesperrt wird.</value>
+  </data>
+  <data name="Display" xml:space="preserve">
+    <value>Zeigen</value>
+  </data>
+  <data name="ActivePrintPlugYVersion" xml:space="preserve">
+    <value>Version von PlugY zeigen</value>
+  </data>
+  <data name="DoNotDisplay" xml:space="preserve">
+    <value>Nicht zeigen</value>
+  </data>
+  <data name="ActiveCheckMemory" xml:space="preserve">
+    <value>Das Spiel nicht starten, wenn nicht alles aktiviert wurde</value>
+  </data>
+  <data name="ActiveCheckMemory_Hint" xml:space="preserve">
+    <value>Wenn Sie diese Option aktivieren, prüft PlugY beim Start des Spiels, ob alle von Ihnen angegebenen Optionen auch im Spiel aktiviert werden können. Wenn auch eine einzige Option im Spiel nicht aktiviert werden kann, startet das Spiel nicht.</value>
+  </data>
+  <data name="ActiveAllOthersFeatures" xml:space="preserve">
+    <value>Versteckte oder unvollendete Funktionen aktivieren</value>
+  </data>
+  <data name="ActivePlugin" xml:space="preserve">
+    <value>PlugY aktivieren</value>
+  </data>
+  <data name="ActivePlugin_Hint" xml:space="preserve">
+    <value>Wenn Sie diese Option nicht wählen, wird keine andere Option aktiviert.</value>
+  </data>
+  <data name="EXTRA" xml:space="preserve">
+    <value>Zusätzlich</value>
+  </data>
+  <data name="WORLD_EVENT" xml:space="preserve">
+    <value>Spielereignis</value>
+  </data>
+  <data name="ActiveWorldEvent" xml:space="preserve">
+    <value>Möglichkeit auf Spielereignis aktivieren</value>
+  </data>
+  <data name="ActiveWorldEvent_Hint" xml:space="preserve">
+    <value>Ein Spielereignis kann nur auf der Schwierigheitsstuffe "Hölle" passieren. Spielereignis bewirkt, dass in der Diablo-Klon erscheint. Die Zeit und der Ort, an dem er erscheint, werden zufällig ausgewählt. In einer Spielsitzung kann es höchstens einmal in 41 Stunden und 40 Minuten passieren. Um das Ereignis auszulösen, benötigen Sie den Stein von Jordan.</value>
+  </data>
+  <data name="ActiveAutoSell" xml:space="preserve">
+    <value>Automatisch den Verkaufszähler des Steins von Jordan inkriminieren</value>
+  </data>
+  <data name="ActiveAutoSell_Hint" xml:space="preserve">
+    <value>Nach der bestimmten Zeit erhöht sich der Verkaufszähler des Steis von Jordan um eins.</value>
+  </data>
+  <data name="InititalSOJSold" xml:space="preserve">
+    <value>Zählerstand nach dem Spielstart:</value>
+  </data>
+  <data name="MonsterID" xml:space="preserve">
+    <value>Kennung des Monsters, das als Ereignis gerufen wird:</value>
+  </data>
+  <data name="MonsterID_Hint" xml:space="preserve">
+    <value>Standardmäßig wird der Diablo-Klon gerufen und seine Kennung ist "333".</value>
+  </data>
+  <data name="ItemsToSell" xml:space="preserve">
+    <value>Gegenstand zum Verkauf anstelle des Steins von Jordan:</value>
+  </data>
+  <data name="ItemsToSell_Hint" xml:space="preserve">
+    <value>Geben Sie die Kennung des Objekts ein, das anstelle des Steins von Jordan in der Berechnung verwendet werden soll.</value>
+  </data>
+  <data name="TriggerAtEachSOJSold" xml:space="preserve">
+    <value>Die Anzahl der Verkäufe des Steins von Jordan für das Ereignis</value>
+  </data>
+  <data name="TriggerAtEachSOJSold_Hint" xml:space="preserve">
+    <value>Notwendige Anzahl von Verkäufen vom Stein des Jordan zum Start des Ereignisses</value>
+  </data>
+  <data name="OwnSOJSoldChargeFor" xml:space="preserve">
+    <value>Der Verkauf des Steins von Jordan erhöht sich jeweils um:</value>
+  </data>
+  <data name="OwnSOJSoldChargeFor_Hint" xml:space="preserve">
+    <value>Um wie viel soll sich der Zähler nach jedem Verkauf vom Stein von Jordan erhöhen.</value>
+  </data>
+  <data name="TimeBeforeAutoSell" xml:space="preserve">
+    <value>Zeit in Sekunden bis zu Erhöhung des Verkaufszählers:</value>
+  </data>
+  <data name="GameParam_3dfx" xml:space="preserve">
+    <value>Videomodus Glide erzwingen</value>
+  </data>
+  <data name="GameParam_3dfx_Hint" xml:space="preserve">
+    <value>Videomodus für Videokarten von 3dfx Interactive. Er kann potenziell effizienter sein als andere Videomodi. Aber in einigen Fällen kann seine Verwendung dazu führen, dass das Spiel nicht gestartet werden kann.</value>
+  </data>
+  <data name="GameParam_Direct" xml:space="preserve">
+    <value>Entpackte Dateien verwenden</value>
+  </data>
+  <data name="GameParam_Direct_Hint" xml:space="preserve">
+    <value>Als Ressourcen werden nicht nur .mpq-Archive verwendet, sondern auch Dateien im Ordner "data" im Spielverzeichnis, wobei diesen der Vorzug gegeben wird. Wir empfehlen Ihnen dringend, diese Option zu aktivieren.</value>
+  </data>
+  <data name="GameParam_nosave" xml:space="preserve">
+    <value>Entwicklung nicht speichern</value>
+  </data>
+  <data name="GameParam_nosave_Hint" xml:space="preserve">
+    <value>Das Spiel wird die Entwicklung Ihrer Charaktere nicht speichern. Das gilt auch für Erfahrungen und Gegenstände. Die Ausnahme ist das erforschte Gebiet auf der Karte.</value>
+  </data>
+  <data name="GameParam_Ns" xml:space="preserve">
+    <value>Ton ausschalten</value>
+  </data>
+  <data name="GameParam_Ns_Hint" xml:space="preserve">
+    <value>Deaktiviert alle Spieltöne. Diese können auch nicht über das Spezialmenü in den Spieloptionen aktiviert werden.</value>
+  </data>
+  <data name="GameParam_skiptobnet" xml:space="preserve">
+    <value>Battle.net gleich beitreten</value>
+  </data>
+  <data name="GameParam_skiptobnet_Hint" xml:space="preserve">
+    <value>Wenn das Spiel startet, werden Sie automatisch in das Battle.net eingeloggt. Es wird nicht empfohlen, diese Option zu verwenden, wenn PlugY aktiviert ist, da dies dazu führen kann, dass Ihr Account bei Battle.net gesperrt werden kann.</value>
+  </data>
+  <data name="GameParam_sndbkg" xml:space="preserve">
+    <value>Musik im Hintergrund</value>
+  </data>
+  <data name="GameParam_sndbkg_Hint" xml:space="preserve">
+    <value>Die Musik stoppt auch nicht, selbst wenn das Spielfenster minimiert oder nicht aktiv ist.</value>
+  </data>
+  <data name="GameParam_Txt" xml:space="preserve">
+    <value>.bin aus .txt kompilieren</value>
+  </data>
+  <data name="GameParam_Txt_Hint" xml:space="preserve">
+    <value>Vor der Ausführung des Spiels werden Ressourcen ausm .txt-Format in .bin kompiliert, die im .txt-Format können vom Spiel nicht verwendet werden. Diese Option ist notwendig, um einige Modifikationen überhaupt nutzen zu können.</value>
+  </data>
+  <data name="VersionText" xml:space="preserve">
+    <value>Spielversion</value>
+  </data>
+  <data name="ColorOfVersionText" xml:space="preserve">
+    <value>Farbe des Spielversions:</value>
+  </data>
+  <data name="ColorOfVersionText_Hint" xml:space="preserve">
+    <value>Die Spielversion wird in dieser Farbe gezeigt.</value>
+  </data>
+  <data name="VersionText_Hint" xml:space="preserve">
+    <value>Wenn Sie dieses Feld leer lassen, dann wird die aktuelle Version des Spiels im Hauptmenü des Spiels unten links angezeigt.</value>
+  </data>
+  <data name="WINDOWED" xml:space="preserve">
+    <value>Fenster des Spiels</value>
+  </data>
+  <data name="WindowOnTop" xml:space="preserve">
+    <value>Immer im Vordergrund</value>
+  </data>
+  <data name="LockMouseOnStartup" xml:space="preserve">
+    <value>Mauszeiger nur an den Fenstergrenzen</value>
+  </data>
+  <data name="GameParam_nofixaspect" xml:space="preserve">
+    <value>Seitenverhältnis nicht speichern</value>
+  </data>
+  <data name="WindowedHeight" xml:space="preserve">
+    <value>Fensterhöhe:</value>
+  </data>
+  <data name="SetWindowPos" xml:space="preserve">
+    <value>Seitenverhältnis ändern</value>
+  </data>
+  <data name="WindowedX" xml:space="preserve">
+    <value>Position des Fensters horizontal:</value>
+  </data>
+  <data name="WindowedY" xml:space="preserve">
+    <value>Position des Fensters vertikal:</value>
+  </data>
+  <data name="RemoveBorder" xml:space="preserve">
+    <value>Fensterrahmen entfernen</value>
+  </data>
+  <data name="Maximized" xml:space="preserve">
+    <value>Spielfenster beim Start maximieren</value>
+  </data>
+  <data name="WindowedWidth" xml:space="preserve">
+    <value>Fensterbreite:</value>
+  </data>
+  <data name="ActiveWindowed" xml:space="preserve">
+    <value>Spiel im Fenster starten</value>
+  </data>
+  <data name="AlwaysRegenMapInSP" xml:space="preserve">
+    <value>Spielwelt bei jedem Start neu generieren</value>
+  </data>
+  <data name="AvailableLanguages" xml:space="preserve">
+    <value>Installierte Übersetzungen:</value>
+  </data>
+  <data name="AvailableLanguages_Hint" xml:space="preserve">
+    <value>Die Liste der installierten Übersetzungen in Ihrer Installation.</value>
+  </data>
+  <data name="INTERFACE" xml:space="preserve">
+    <value>Benutzeroberfläche</value>
+  </data>
+  <data name="ActiveNewStatsInterface" xml:space="preserve">
+    <value>Benutzeroberfläche der Eigenschaften erweitern</value>
+  </data>
+  <data name="ActiveNewStatsInterface_Hint" xml:space="preserve">
+    <value>Fügt zusätzliche Seiten zu den Eigenschaften hinzu, mit detaillierteren Informationen über Ihren Charakter.</value>
+  </data>
+  <data name="ActiveDisplayItemLevel" xml:space="preserve">
+    <value>Level des Gegenstands in seinen Eigenschaften zeigen</value>
+  </data>
+  <data name="ActiveDisplayItemLevel_Hint" xml:space="preserve">
+    <value>Wenn Sie mit dem Mauszeiger auf den Gegenstand zeigen, wird dessen Level gezeigt. Vom Level des Gegenstandes hängen seine grundlegende Eigenschaften ab.</value>
+  </data>
+  <data name="LAUNCHING" xml:space="preserve">
+    <value>Ausführen</value>
+  </data>
+  <data name="Param" xml:space="preserve">
+    <value>Spielparameter zum Start</value>
+  </data>
+  <data name="Param_Hint" xml:space="preserve">
+    <value>Die Parameter werden mit einem Bindestrich angegeben. Wenn Sie mehrere Parameter angeben, trennen Sie diese durch ein Leerzeichen voneinander. Zum Beispiel: -w -direkt</value>
+  </data>
+  <data name="AlwaysDisplayLifeAndManaValues" xml:space="preserve">
+    <value>Leben und Mana als Zahlen:</value>
+  </data>
+  <data name="AlwaysDisplayLifeAndManaValues_Hint" xml:space="preserve">
+    <value>Standardmäßig werden die Werte als Zahlen von Leben und Mana über den jeweiligen Sphären nicht angezeigt.</value>
+  </data>
+  <data name="LANGUAGE" xml:space="preserve">
+    <value>Übersetzung</value>
+  </data>
+  <data name="LocalizationCHI" xml:space="preserve">
+    <value>Chinesisch</value>
+  </data>
+  <data name="DefaultLanguage" xml:space="preserve">
+    <value>Standardmäßige Übersetzung:</value>
+  </data>
+  <data name="DefaultLanguage_Hint" xml:space="preserve">
+    <value>Diese Übersetzung benutzen wenn sonst keine da ist.</value>
+  </data>
+  <data name="LocalizationDEU" xml:space="preserve">
+    <value>Detusch</value>
+  </data>
+  <data name="LocalizationENG" xml:space="preserve">
+    <value>Englisch</value>
+  </data>
+  <data name="LocalizationESP" xml:space="preserve">
+    <value>Spanisch</value>
+  </data>
+  <data name="LocalizationFRA" xml:space="preserve">
+    <value>Französisch</value>
+  </data>
+  <data name="LocalizationITA" xml:space="preserve">
+    <value>Italienisch</value>
+  </data>
+  <data name="LocalizationJPN" xml:space="preserve">
+    <value>Japanisch</value>
+  </data>
+  <data name="LocalizationKOR" xml:space="preserve">
+    <value>Koreanisch</value>
+  </data>
+  <data name="LocalizationPOL" xml:space="preserve">
+    <value>Polnisch</value>
+  </data>
+  <data name="LocalizationPOR" xml:space="preserve">
+    <value>Portugiesisch</value>
+  </data>
+  <data name="LocalizationRUS" xml:space="preserve">
+    <value>Russisch</value>
+  </data>
+  <data name="LocalizationSIN" xml:space="preserve">
+    <value>Singhalesisch</value>
+  </data>
+  <data name="GENERAL" xml:space="preserve">
+    <value>Das Wichtigste</value>
+  </data>
+  <data name="MAIN_SCREEN" xml:space="preserve">
+    <value>Hauptmenü</value>
+  </data>
+  <data name="MainTab1Name" xml:space="preserve">
+    <value>Haupteinstellungen</value>
+  </data>
+  <data name="MainTab2Name" xml:space="preserve">
+    <value>Feineinstellungen</value>
+  </data>
+  <data name="MainTab3Name" xml:space="preserve">
+    <value>Positionen vom Fenster und Schaltflächen</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Max.</value>
+  </data>
+  <data name="EnabledTXTFilesWhenMSExcelOpenIt" xml:space="preserve">
+    <value>Kompatibilität mit Microsoft Exel</value>
+  </data>
+  <data name="EnabledTXTFilesWhenMSExcelOpenIt_Hint" xml:space="preserve">
+    <value>Die .txt-Dateien des Spiels sind auch dann verfügbar, wenn sie in MS Excel parallel geöffnet sind.</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min.</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>Verschiedenes</value>
+  </data>
+  <data name="NBPlayersByDefault" xml:space="preserve">
+    <value>Emulation von mehreren Spielern:</value>
+  </data>
+  <data name="NBPlayersByDefault_Hint" xml:space="preserve">
+    <value>Je mehr Spieler Sie spielen, desto komplizierter wird es, Monster zu bekämpfen, und umso mehr Erfahrung bekommt Ihr Charakter. Wenn Sie diese Option aktivieren, erhalten Sie selbst in einem Einzelspieler-Spiel die Komplexität und die Menge an Erfahrung, die Sie erhalten würden, wenn Sie in dem Spiel mit mehreren Spielern spielen würden.</value>
+  </data>
+  <data name="ActiveDoNotCloseNihlathakPortal" xml:space="preserve">
+    <value>Das Portal zum Nihlathak nicht schließen</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Anmerkungen</value>
+  </data>
+  <data name="Notes1" xml:space="preserve">
+    <value>    Der Nullpunkt für Messung ist die äußerste linke horizontale Position und die äußerste untere vertikale Position.</value>
+  </data>
+  <data name="Notes2" xml:space="preserve">
+    <value>    Wenn der Wert negativ ist, befindet sich die Schaltfläche an der Standardposition.</value>
+  </data>
+  <data name="OnCommandOnly" xml:space="preserve">
+    <value>Nur auf Befehl</value>
+  </data>
+  <data name="PreviousIndexBtn" xml:space="preserve">
+    <value>Mehrere Seiten vorwärts</value>
+  </data>
+  <data name="NextIndexBtn" xml:space="preserve">
+    <value>Mehrere Seiten rückwärts</value>
+  </data>
+  <data name="PageNext" xml:space="preserve">
+    <value>Nächste Seite</value>
+  </data>
+  <data name="PreviousBtn" xml:space="preserve">
+    <value>Vorherige Seite</value>
+  </data>
+  <data name="Library" xml:space="preserve">
+    <value>PlugY Bibliothek</value>
+  </data>
+  <data name="Library_Hint" xml:space="preserve">
+    <value>Wenn Sie keine Bibliothek angeben, wird PlugY nicht verwendet.</value>
+  </data>
+  <data name="ColorOfPlugYVersion" xml:space="preserve">
+    <value>Farbe der PlugY-Version:</value>
+  </data>
+  <data name="ColorOfPlugYVersion_Hint" xml:space="preserve">
+    <value>Version von PlugY wird in dieser Farbe angezeigt.</value>
+  </data>
+  <data name="PosHorizontally" xml:space="preserve">
+    <value>Horizontal:</value>
+  </data>
+  <data name="PosVertically" xml:space="preserve">
+    <value>Vertikal:</value>
+  </data>
+  <data name="ActiveLogFile" xml:space="preserve">
+    <value>PlugY-Protokoll während des Spiels führen</value>
+  </data>
+  <data name="ActiveLogFile_Hint" xml:space="preserve">
+    <value>Es wird nicht empfohlen, diese Option zu aktivieren, da sie die Leistung des Spiels beeinträchtigen kann.</value>
+  </data>
+  <data name="ActiveSkillsUnassignmentOneForOne" xml:space="preserve">
+    <value>Geschicklichkeitspunkte 1 zu 1 verteilen</value>
+  </data>
+  <data name="ActiveLanguageManagement" xml:space="preserve">
+    <value>Feststellung bestimmter Übersetzung</value>
+  </data>
+  <data name="ActiveLanguageManagement_Hint" xml:space="preserve">
+    <value>Verwenden Sie die gewählte Übersetzung des Spiels nur, wenn diese in der von Ihnen angegebenen Liste der installierten Lokalisierungen enthalten ist, ist diese nicht vorhanden, verwenden Sie die von Ihnen angegebene Standardlokalisierung.</value>
+  </data>
+  <data name="ActiveLadderRunewords" xml:space="preserve">
+    <value>Runenwörter aus dem Rangspiel erlauben</value>
+  </data>
+  <data name="ActiveLadderRunewords_Hint" xml:space="preserve">
+    <value>Standardmäßig sind einige Runenwörter nur im Rangspiel bei Battle.net gültig. Wenn Sie diese Option aktivieren, können Sie diese Runenwörter in jedem Spielmodus verwenden.</value>
+  </data>
+  <data name="SAVEPATH" xml:space="preserve">
+    <value>Speicherort</value>
+  </data>
+  <data name="ActiveSavePathChange" xml:space="preserve">
+    <value>Speicherordner von PlugY-Dateien ändern</value>
+  </data>
+  <data name="OpenSharedStashOnLoading" xml:space="preserve">
+    <value>Von Haus aus die Gemeinsame Seite der Truhe öffnen</value>
+  </data>
+  <data name="ActiveSavePathChange_Hint" xml:space="preserve">
+    <value>Wenn Sie PlugY benutzen, dann werden zusätzlich zu den Standard-Speicherdateien weitere PlugY-bezogene Informationen, wie z. B. der Inhalt einer mehrseitigen Truhe, erstellt. Standardmäßig erscheinen diese Dateien im gleichen Ordner, in dem sich auch die Standard-Speicherdateien des Spiels befinden. Wenn Sie dies ändern möchten, markieren Sie diesen Punkt und geben Sie unten das entsprechende Verzeichnis an.</value>
+  </data>
+  <data name="SavePath_Hint" xml:space="preserve">
+    <value>Denken Sie daran, die Speicherdateien aus dem vorherigen Verzeichnis in das von Ihnen angegebene Verzeichnis manuell zu verschieben.</value>
+  </data>
+  <data name="UnassignSkillBtn" xml:space="preserve">
+    <value>Fertigkeitspunkte zurücksetzen</value>
+  </data>
+  <data name="SKILLS_POINTS" xml:space="preserve">
+    <value>Fertigkeiten</value>
+  </data>
+  <data name="ActiveSkillsUnassignment" xml:space="preserve">
+    <value>Umverteilung von Fertigkeitspunkten erlauben</value>
+  </data>
+  <data name="ActiveSkillsUnassignment_Hint" xml:space="preserve">
+    <value>Erlaubt Umverteilung der Fertigkeitspunkte jederzeit, so oft Sie wollen, absolut ohne Einschränkungen.</value>
+  </data>
+  <data name="SkillsButtons" xml:space="preserve">
+    <value>Schaltflächen der Fertigkeiten</value>
+  </data>
+  <data name="ActiveSkillPerLevelUp" xml:space="preserve">
+    <value>Ändern Sie die Anzahl der pro Level erhaltenen Punkte</value>
+  </data>
+  <data name="ActiveSkillPerLevelUp_Hint" xml:space="preserve">
+    <value>Wenn ein Charakter seine Stufe erhöht, erhält er standardmäßig einen Fertigkeitspunkt. Wenn Sie die Anzahl der Fertigkeitspunkte, die Sie erhalten, ändern möchten, aktivieren Sie diese Option.</value>
+  </data>
+  <data name="SkillPerLevelUp" xml:space="preserve">
+    <value>Anzahl der Fertigkeitspunkte pro Level:</value>
+  </data>
+  <data name="STATS" xml:space="preserve">
+    <value>Eigenschaften</value>
+  </data>
+  <data name="LimitValueToShiftClick" xml:space="preserve">
+    <value>Mit der Shift Hinzufügen/Entfernen:</value>
+  </data>
+  <data name="ActiveShiftClickLimit" xml:space="preserve">
+    <value>Mit der Shift Hinzufügen/Entfernen nicht aller Punkte</value>
+  </data>
+  <data name="ActiveShiftClickLimit_Hint" xml:space="preserve">
+    <value>Wenn Sie die "Umschalttaste" gedrückt halten, können Sie standardmäßig alle Punkte auf einmal steuern. Wenn Sie die Anzahl von den zu ändernden Punkten begrenzen möchten, dann aktivieren Sie diese Option.</value>
+  </data>
+  <data name="ActiveStatsUnassignment" xml:space="preserve">
+    <value>Umverteilung von Leistungspunkten erlauben</value>
+  </data>
+  <data name="ActiveStatsUnassignment_Hint" xml:space="preserve">
+    <value>Gibt Ihnen die Möglichkeit, Leistungspunkte jederzeit, so oft Sie wollen, absolut uneingeschränkt umzuverteilen.</value>
+  </data>
+  <data name="KeyUsed" xml:space="preserve">
+    <value>Taste zum Entfernen von Punkten:</value>
+  </data>
+  <data name="KeyUsed_Hint" xml:space="preserve">
+    <value>Wählen Sie die Taste, die Sie tätigen, um die Anzahl der Punkte für eine bestimmte Eigenschaft um bestimmte Punkte zu reduzieren.</value>
+  </data>
+  <data name="StatPerLevelUp" xml:space="preserve">
+    <value>Anzahl der Punkte pro Level:</value>
+  </data>
+  <data name="ActiveStatPerLevelUp" xml:space="preserve">
+    <value>Anzahl der Punkte pro Level ändern</value>
+  </data>
+  <data name="ActiveStatPerLevelUp_Hint" xml:space="preserve">
+    <value>Wenn ein Charakter ein neues Level erreicht, erhält er standardmäßig 5 Punkte.</value>
+  </data>
+  <data name="ThanksDavid" xml:space="preserve">
+    <value>für die Übersetzung der Programmoberfläche ins Deutsche.</value>
+  </data>
+  <data name="ThanksKambala" xml:space="preserve">
+    <value>für die Übersetzung der Programmoberfläche ins Englische.</value>
+  </data>
+  <data name="ThanksLAutour" xml:space="preserve">
+    <value>für die zahlreiche Hilfestellungen.</value>
+  </data>
+  <data name="ThanksLorc" xml:space="preserve">
+    <value>für die Erstellung eines wunderbaren Icon-Sets, von denen eines als Symbol für dieses Programm verwendet wird.</value>
+  </data>
+  <data name="ThanksYohannNicolas" xml:space="preserve">
+    <value>für die Erstellung</value>
+  </data>
+  <data name="UBER_QUEST" xml:space="preserve">
+    <value>Uberquest</value>
+  </data>
+  <data name="ActiveUberQuest" xml:space="preserve">
+    <value>Möglichkeit Uberquest zu machen aktivieren</value>
+  </data>
+  <data name="ActiveUberQuest_Hint" xml:space="preserve">
+    <value>Uberquest ist ein besonderes Ereignis, das nur mit den richtigen Zutaten zugänglich ist. Dieses Ereignis endet mit einem gleichzeitigen Kampf mit drei Hauptgegnern.</value>
+  </data>
+  <data name="SelectedLanguage" xml:space="preserve">
+    <value>Übersetzung benutzen:</value>
+  </data>
+  <data name="SelectedLanguage_Hint" xml:space="preserve">
+    <value>Wenn Sie eine Übersetzung wählen, die nicht in Ihrer Installation vorhanden ist, startet das Spiel nicht.</value>
+  </data>
+  <data name="ActiveDisplayBaseStatsValue" xml:space="preserve">
+    <value>Parameter ohne magischer Boni zeigen</value>
+  </data>
+  <data name="ActiveDisplayBaseStatsValue_Hint" xml:space="preserve">
+    <value>Wenn Sie Mauszeiger über einen Gegenstand bewegen, werden dessen Eigenschaften angezeigt, ohne dass magische Boni berücksichtigt werden.</value>
+  </data>
+  <data name="PlugYiniNotFound_Heading" xml:space="preserve">
+    <value>PlugY.ini nicht gefunden</value>
+  </data>
+  <data name="PlugYiniNotFound_Question" xml:space="preserve">
+    <value>Wählen Sie den Ordner mit PlugY.ini?</value>
+  </data>
+</root>

@@ -10,7 +10,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:resx="clr-namespace:PlugY_Configurator.Resources.Translation"
     Title="{loc:Loc AboutProg}"
-    Width="580"
+    Width="590"
     MaxHeight="291"
     loc:Translation.ResourceManager="{x:Static resx:lang.ResourceManager}"
     BorderBrush="{DynamicResource AccentColorBrush}"
@@ -59,7 +59,7 @@
                     <Image
                         Width="64"
                         Height="64"
-                        Margin="0,0,10,5"
+                        Margin="0,0,0,5"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         RenderOptions.BitmapScalingMode="Fant"
@@ -67,7 +67,9 @@
 
                     <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
 
-                        <TextBlock Text="PlugY Configurator" />
+                        <TextBlock>
+                            <Hyperlink NavigateUri="https://github.com/Raf-9600/PlugY-Configurator" RequestNavigate="Hyperlink_RequestNavigate">PlugY Configurator</Hyperlink>
+                        </TextBlock>
 
                         <TextBlock Text="Copyright © 2020 Raf-9600" />
 

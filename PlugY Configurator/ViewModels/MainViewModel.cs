@@ -197,24 +197,8 @@ namespace PlugY_Configurator.ViewModels
             }
         }
 
-        public struct UpdateStruct
-        {
-            public string Date { get; set; }
-            public string Ver { get; set; }
-
-            public UpdateStruct(string date, string ver)
-            {
-                Date = date;
-                Ver = ver;
-            }
-        }
-
         public MainViewModel()
         {
-            UpdateStruct updateJson = new UpdateStruct(null, System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
-            string updateSerialize = System.Text.Json.JsonSerializer.Serialize(updateJson, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(@"R:\upd.json", updateSerialize);
-
             // Если в Винде тёмная тема, то включаем её и в программе
             if (!_model.DetectLightTheme())
                 ThemeManager.Current.ChangeTheme(System.Windows.Application.Current, "Dark.Crimson");
@@ -268,11 +252,7 @@ namespace PlugY_Configurator.ViewModels
                 else
                     Environment.Exit(0);
             }
-
-            
         }
-
-
 
         public ICommand WindowLoaded
         {
@@ -280,11 +260,10 @@ namespace PlugY_Configurator.ViewModels
             {
                 return new RelayCommand<RoutedEventArgs>(async (args) =>
                 {
-                        // Выравниваем окно по центру
-                        Rect workArea = System.Windows.SystemParameters.WorkArea;
-                        Application.Current.MainWindow.Left = (workArea.Width - Application.Current.MainWindow.ActualWidth) / 2 + workArea.Left;
-                        Application.Current.MainWindow.Top = (workArea.Height - Application.Current.MainWindow.ActualHeight) / 2 + workArea.Top;
-
+                    // Выравниваем окно по центру
+                    Rect workArea = System.Windows.SystemParameters.WorkArea;
+                    Application.Current.MainWindow.Left = (workArea.Width - Application.Current.MainWindow.ActualWidth) / 2 + workArea.Left;
+                    Application.Current.MainWindow.Top = (workArea.Height - Application.Current.MainWindow.ActualHeight) / 2 + workArea.Top;
                 });
             }
         }
@@ -307,7 +286,6 @@ namespace PlugY_Configurator.ViewModels
 
                     dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
                     dispatcherTimer.Start();
-
                 });
             }
         }
@@ -325,7 +303,20 @@ namespace PlugY_Configurator.ViewModels
 
         #region MainSettings
 
-        public ObservableCollection<CultureInfo> Sttngs_Languages { get; set; } = new ObservableCollection<CultureInfo> { new CultureInfo("ru") };
+        private ICommand _btnStart_Click;
+        public ICommand BtnStart_Click
+        {
+            get
+            {
+                return _btnStart_Click ?? (_btnStart_Click = new RelayCommand(async () =>
+                {
+
+
+                }));
+            }
+        }
+
+        public ObservableCollection<CultureInfo> Sttngs_Languages { get; set; } = new ObservableCollection<CultureInfo> { new CultureInfo("ru"),  new CultureInfo("de") };
 
 
         private int _sttngs_Languages_Index = -1;
