@@ -17,7 +17,7 @@
     BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
     BorderThickness="1"
     GlowBrush="Black"
-    ResizeMode="CanMinimize"
+    ResizeMode="CanMinimize" AllowDrop="True"
     ShowMaxRestoreButton="False"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -38,6 +38,9 @@
         </i:EventTrigger>
         <i:EventTrigger EventName="Closing">
             <i:InvokeCommandAction Command="{Binding WindowClosing}" PassEventArgsToCommand="True" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Drop">
+            <i:InvokeCommandAction Command="{Binding EventDrop}" PassEventArgsToCommand="True" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
@@ -240,11 +243,6 @@
         MaxWidth="{Binding ContentMainWindowWidth, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
         Controls:TabControlHelper.Transition="LeftReplace"
         Controls:TabControlHelper.Underlined="None">
-        <i:Interaction.Triggers>
-            <i:EventTrigger EventName="Drop">
-                <i:InvokeCommandAction Command="{Binding EventDrop}" PassEventArgsToCommand="True" />
-            </i:EventTrigger>
-        </i:Interaction.Triggers>
         <TabItem Header="{loc:Loc MainTab1Name}">
             <TabItem.Resources>
                 <Style TargetType="{x:Type Controls:NumericUpDown}">
@@ -352,6 +350,7 @@
                                 <CheckBox
                                     Content="{loc:Loc ShowCounterInAllDifficulty}"
                                     IsChecked="{Binding ShowCounterInAllDifficulty}"
+                                    IsEnabled="{Binding ActiveWorldEvent}"
                                     ToolTip="{loc:Loc ShowCounterInAllDifficulty_Hint}" />
                             </StackPanel>
                         </Controls:MetroHeader>
@@ -845,9 +844,12 @@
                             </StackPanel>
                         </Controls:MetroHeader>
 
-                        <Controls:MetroHeader Grid.Column="1" Header="{loc:Loc STASH}">
+                        <Controls:MetroHeader
+                            Grid.Column="1"
+                            Header="{loc:Loc STASH}"
+                            IsEnabled="{Binding ActiveMultiPageStash}">
                             <StackPanel>
-                                <DockPanel ToolTip="{loc:Loc ChestNumbPersonalPages_Hint}">
+                                <DockPanel ToolTip="{loc:Loc MaxPersonnalPages_Hint}">
                                     <TextBlock Text="{loc:Loc MaxPersonnalPages}" />
                                     <Controls:NumericUpDown Value="{Binding MaxPersonnalPages}" />
                                 </DockPanel>
@@ -896,7 +898,10 @@
                             Grid.Column="2"
                             Margin="0"
                             Orientation="Vertical">
-                            <Controls:MetroHeader Grid.Column="2" Header="{loc:Loc WORLD_EVENT}">
+                            <Controls:MetroHeader
+                                Grid.Column="2"
+                                Header="{loc:Loc WORLD_EVENT}"
+                                IsEnabled="{Binding ActiveWorldEvent}">
                                 <StackPanel>
                                     <DockPanel>
                                         <TextBlock Text="{loc:Loc ItemsToSell}" ToolTip="{loc:Loc ItemsToSell_Hint}" />

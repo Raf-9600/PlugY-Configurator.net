@@ -41,6 +41,9 @@ namespace PlugY_Configurator.ViewModels
             get { return _plugyFullPath; }
             set
             {
+                if (string.IsNullOrEmpty(value))
+                    return;
+
                 _plugyFullPath = value;
                 OnPropertyChanged();
 
@@ -209,12 +212,22 @@ namespace PlugY_Configurator.ViewModels
 
 
             string workFile = string.Empty;
+
+            string[] args = Environment.GetCommandLineArgs();
+
+            if (args.Length > 1)
+                workFile = _model.FindPlugyIni(args);
+
+
+
             string currentUICulture;
             var sett = Models.Settings.Get();
             if (sett != null)
             {
                 currentUICulture = sett.Value.Lng;
-                workFile = sett.Value.PathPlugyIni;
+
+                if (string.IsNullOrEmpty(workFile))
+                    workFile = sett.Value.PathPlugyIni;
             }
             else
             {
@@ -230,8 +243,7 @@ namespace PlugY_Configurator.ViewModels
                 }
             }
 
-            if (currentUICulture == "ru")
-            MainWindowWidth = 1330;
+            //if (currentUICulture == "ru") MainWindowWidth = 1330;
             if (MainWindowWidth > screenRealWidth)
                 MainWindowWidth = screenRealWidth - 20;
 
@@ -297,6 +309,20 @@ namespace PlugY_Configurator.ViewModels
                 return new RelayCommand<CancelEventArgs>((args) =>
                 {
                     Models.Settings.Save(new Models.Settings.MainSettings(Sttngs_Languages[Sttngs_Languages_Index].TwoLetterISOLanguageName, PlugyFullPath));
+                });
+            }
+        }
+
+        public ICommand EventDrop
+        {
+            get
+            {
+                return new RelayCommand<DragEventArgs>( (args) =>
+                {
+                    string[] files = (string[])args.Data.GetData(DataFormats.FileDrop);
+
+                    PlugyFullPath = _model.FindPlugyIni(files);
+
                 });
             }
         }

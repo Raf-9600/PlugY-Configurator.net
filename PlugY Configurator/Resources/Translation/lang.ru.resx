@@ -187,7 +187,7 @@
     <value>По умолчанию PlugY запоминает, какая страница характеристик была открыта последней, и в следующий раз, когда вы откроете характеристики, они отобразятся на той странице, которую вы просматривали в прошлый раз перед закрытием. Если вы хотите чтобы PlugY не запоминал последнюю открытую вами страницу характеристик и они всегда открывались на первой странице, тогда активируйте эту опцию.</value>
   </data>
   <data name="PrintButtonsBackgroundOnMainStatsPage" xml:space="preserve">
-    <value>Кнопки переключения страниц имеют рамку</value>
+    <value>Добавить рамку кнопкам переключения страниц</value>
   </data>
   <data name="ActiveVersionTextChange" xml:space="preserve">
     <value>Изменить отображаемую версию игры</value>
@@ -205,10 +205,10 @@
     <value>Кнопки сундука</value>
   </data>
   <data name="ActiveSharedGold" xml:space="preserve">
-    <value>Сделать золото в сундуке общим для всех персонажей</value>
+    <value>Сделать золото в сундуке общим для ваших персонажей</value>
   </data>
   <data name="ActiveSharedGold_Hint" xml:space="preserve">
-    <value>По умолчанию золото в сундуке личное для каждого из ваших персонажей. Активировав данную опцию, оно станет общим для всех ваших персонажей.</value>
+    <value>По умолчанию золото в сундуке личное для каждого из ваших персонажей. Активировав данную опцию, в сундуке помимо личного, появится опция золота доступного всем вашим персонажам.</value>
   </data>
   <data name="PutGoldBtn" xml:space="preserve">
     <value>Положить золото в общий сундук</value>
@@ -229,47 +229,47 @@
     <value>Количество личных страниц:</value>
   </data>
   <data name="MaxPersonnalPages_Hint" xml:space="preserve">
-    <value>Количество личных страниц в сундуке каждого персонажа будет ограничено этим числом.</value>
+    <value>Количество личных страниц в сундуке каждого персонажа будет ограничено этим числом. Значение «0» означает неограниченное количество.</value>
   </data>
   <data name="MaxSharedPages" xml:space="preserve">
     <value>Количество общих страниц:</value>
   </data>
   <data name="MaxSharedPages_Hint" xml:space="preserve">
-    <value>Это количество страниц будет общим для всех ваших персонажей.</value>
+    <value>Общий для ваших персонажей отдел сундука будет ограничен данным числом страниц. Значение «0» означает неограниченное количество.</value>
   </data>
   <data name="ActiveSharedStash" xml:space="preserve">
-    <value>Сделать сундук общим для всех персонажей</value>
+    <value>Добавить в сундук общий для ваших персонажей отдел</value>
   </data>
   <data name="ActiveSharedStash_Hint" xml:space="preserve">
     <value>Добавляет в сундук переключатель на дополнительные страницы, содержимое которых является общим для всех ваших персонажей.</value>
   </data>
   <data name="SeparateHardcoreStash" xml:space="preserve">
-    <value>Отдельный сундук для смертных персонажей</value>
+    <value>Отдельный общий отдел сундука у смертных персонажей</value>
   </data>
   <data name="SeparateHardcoreStash_Hint" xml:space="preserve">
-    <value>Смертные персонажи не смогут получить доступ к содержимому сундука обычных персонажей.</value>
+    <value>Смертные персонажи не смогут получить доступ к общему отделу сундука ваших обычных персонажей, у ваших смертных персонажей будет свой общий отдел.</value>
   </data>
   <data name="SharedStashFilename" xml:space="preserve">
-    <value>Название файла сохранений сундука</value>
+    <value>Имя файла сохранений общего отдела сундука</value>
   </data>
   <data name="SharedStashFilename_Hint" xml:space="preserve">
-    <value>Название файла в котором будет сохраняться содержимое дополнительного пространства сундука.
+    <value>Имя файла, в котором будет сохраняться содержимое страниц общего отдела сундука.
 Обратите внимание что, введя новое название файла, уже существующий файл переименован не будет, вам это необходимо сделать вручную.</value>
   </data>
   <data name="DisplaySharedSetItemNameInGreen" xml:space="preserve">
-    <value>Отображать комплектные вещи в сундуке зелёным</value>
+    <value>В перечне вещей комплекта учитывать те, что в сундуке</value>
   </data>
   <data name="DisplaySharedSetItemNameInGreen_Hint" xml:space="preserve">
-    <value>При просмотре свойств вещи из набора, название тех частей набора, что находятся в сундуке, будут написаны зелёным цветом.</value>
+    <value>При просмотре свойств вещи являющейся частью комплекта, среди её характеристик отображается так же список из названий других вещей, что относятся к данному комплекту. Активировав данную опцию в этом списке зелёным цветом будут написаны даже названия тех вещей, что находятся в сундуке.</value>
   </data>
   <data name="ActiveBigStash" xml:space="preserve">
     <value>Увеличить размеры сундука</value>
   </data>
   <data name="NbPagesPerIndex" xml:space="preserve">
-    <value>Переходить страниц сундука:</value>
+    <value>Пролистывать страниц сундука:</value>
   </data>
   <data name="NbPagesPerIndex2" xml:space="preserve">
-    <value>Переходить страниц по Shift:</value>
+    <value>Пролистывать страниц по Shift:</value>
   </data>
   <data name="NbPagesPerIndex2_Hint" xml:space="preserve">
     <value>При зажатой клавише «Shift» и клике на кнопку пролистывания страниц сундука, будет пролистано заданное вами число страниц.</value>
@@ -287,7 +287,7 @@
     <value>Тёмно-зелёный</value>
   </data>
   <data name="ColorDarkYellow" xml:space="preserve">
-    <value>Темно-жёлтый</value>
+    <value>Тёмно-жёлтый</value>
   </data>
   <data name="ColorDeepDarkGreen" xml:space="preserve">
     <value>Насыщенный тёмно-зелёный</value>
@@ -750,7 +750,7 @@
     <value>за перевод интерфейса программы на немецкий язык.</value>
   </data>
   <data name="ThanksKambala" xml:space="preserve">
-    <value>за перевод интерфейса программы на английский язык.</value>
+    <value>за перевод интерфейса программы на английский язык и консультации.</value>
   </data>
   <data name="ThanksLAutour" xml:space="preserve">
     <value>за многочисленные консультации.</value>

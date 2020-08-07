@@ -105,6 +105,18 @@ namespace PlugY_Configurator.Models
             return false;
         }
 
+        public string FindPlugyIni(string[] filesArray)
+        {
+            foreach (var fle in filesArray)
+            {
+                string fleString = Path.GetFileName(fle);
+
+                if (fleString.Equals("PlugY.ini", StringComparison.OrdinalIgnoreCase))
+                    return fle;
+            }
+
+            return string.Empty;
+        }
 
 
         public string FindWorkDir(string nameFile)
