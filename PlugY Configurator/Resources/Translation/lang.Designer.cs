@@ -93,6 +93,24 @@ namespace PlugY_Configurator.Resources.Translation {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Все файлы.
+        /// </summary>
+        public static string DlgFolderPlugyIni_AllFiles {
+            get {
+                return ResourceManager.GetString("DlgFolderPlugyIni_AllFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Все .ini.
+        /// </summary>
+        public static string DlgFolderPlugyIni_AllIni {
+            get {
+                return ResourceManager.GetString("DlgFolderPlugyIni_AllIni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Permission is hereby granted, free of charge, to any person obtaining a copy
         ///of this software and associated documentation files (the &quot;Software&quot;), to deal
         ///in the Software without restriction, including without limitation the rights

@@ -791,4 +791,10 @@
   <data name="UpdateFound" xml:space="preserve">
     <value>[Найдено обновление]</value>
   </data>
+  <data name="DlgFolderPlugyIni_AllFiles" xml:space="preserve">
+    <value>Все файлы</value>
+  </data>
+  <data name="DlgFolderPlugyIni_AllIni" xml:space="preserve">
+    <value>Все .ini</value>
+  </data>
 </root>

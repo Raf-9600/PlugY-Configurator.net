@@ -453,15 +453,14 @@ namespace TIniFile
 
         internal bool? GetValue(string SectionName, string Key, bool? DefaultValue)
         {
-/*
             string def = string.Empty;
             if (DefaultValue == false || DefaultValue == null)
                 def = "0";
             else if (DefaultValue == true)
                 def = "1";
-*/
 
-            string StringValue = GetValue(SectionName, Key, DefaultValue?.ToString(CultureInfo.InvariantCulture));
+
+            string StringValue = GetValue(SectionName, Key, def.ToString(CultureInfo.InvariantCulture));
             int Value;
             if (int.TryParse(StringValue, out Value)) return (Value != 0);
             return DefaultValue;

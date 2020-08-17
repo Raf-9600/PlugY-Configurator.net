@@ -140,9 +140,8 @@ namespace PlugY_Configurator.Models
         {
             using (RegistryKey regHKCU = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", false))
                 if (regHKCU != null)
-                {
                     return Convert.ToBoolean(regHKCU.GetValue("AppsUseLightTheme"));
-                }
+
             return true;
         }
 

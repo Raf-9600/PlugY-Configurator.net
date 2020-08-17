@@ -14,10 +14,11 @@
     Width="{Binding MainWindowWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
     Height="595"
     loc:Translation.ResourceManager="{x:Static resx:lang.ResourceManager}"
+    AllowDrop="True"
     BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
     BorderThickness="1"
     GlowBrush="Black"
-    ResizeMode="CanMinimize" AllowDrop="True"
+    ResizeMode="CanMinimize"
     ShowMaxRestoreButton="False"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -192,7 +193,7 @@
                             <StackPanel Orientation="Vertical">
 
                                 <CheckBox Content="{loc:Loc ActiveWindowed}" IsChecked="{Binding GameParam_WindowMode}" />
-                                <CheckBox Content="{loc:Loc GameParam_DoNotKeepProportions}" IsChecked="{Binding GameParam_nofixaspect}" />
+                                <CheckBox Content="{loc:Loc GameParam_nofixaspect}" IsChecked="{Binding GameParam_nofixaspect}" />
                                 <CheckBox
                                     Content="{loc:Loc GameParam_Direct}"
                                     IsChecked="{Binding GameParam_Direct}"

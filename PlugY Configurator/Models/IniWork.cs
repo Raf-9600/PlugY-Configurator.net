@@ -23,14 +23,26 @@ namespace PlugY_Configurator.Models
             if (File.Exists(iniDefaultPath))
                 _iniDefault = new INIFile(iniDefaultPath);
 
-            _avlblLngs = new List<string>(GetVal("LANGUAGE", "AvailableLanguages", "").Split('|'));
+            try
+            {
+            	_avlblLngs = new List<string>(GetVal("LANGUAGE", "AvailableLanguages", "").Split('|'));
+            }
+            catch (System.Exception ex)
+            {
+            	
+            }
         }
 
         public bool GetAvailableLanguages(string lng)
         {
-            var r = _avlblLngs.Find(s => s.Contains(lng));
-            if (!string.IsNullOrEmpty(r))
-                return true;
+            try
+            {
+	            var r = _avlblLngs.Find(s => s.Contains(lng));
+	            if (!string.IsNullOrEmpty(r))
+	                return true;
+            }
+            catch (Exception)
+            { }
 
             return false;
         }
@@ -53,38 +65,59 @@ namespace PlugY_Configurator.Models
 
         public string GetVal(string section, string param, string def = "")
         {
-            string paramIniPlugy = _iniPlugy.GetValue(section, param, def);
+            try
+            {
+	            string paramIniPlugy = _iniPlugy.GetValue(section, param, def);
+	
+	            if (string.IsNullOrEmpty(paramIniPlugy))
+	                return _iniDefault.GetValue(section, param, def);
+	
+	            return paramIniPlugy;
+            }
+            catch (Exception)
+            { }
 
-            if (string.IsNullOrEmpty(paramIniPlugy))
-                return _iniDefault.GetValue(section, param, def);
-
-            return paramIniPlugy;
+            return def;
         }
 
         public bool GetVal(string section, string param, bool def = false)
         {
-            var paramIniPlugy = _iniPlugy.GetValue(section, param, (bool?)null);
-
-            if (paramIniPlugy == null)
+            try
             {
-                var result = _iniDefault.GetValue(section, param, (bool?)null);
-                return result ?? def;
-            }
+	            var paramIniPlugy = _iniPlugy.GetValue(section, param, (bool?)null);
+	
+	            if (paramIniPlugy == null)
+	            {
+	                var result = _iniDefault.GetValue(section, param, (bool?)null);
+	                return result ?? def;
+	            }
 
-            return paramIniPlugy ?? def;
+                return paramIniPlugy ?? def;
+            }
+            catch (Exception)
+            { }
+
+            return def;
         }
 
         public int GetVal(string section, string param, int def = 0)
         {
-            int? paramIniPlugy = _iniPlugy.GetValue(section, param, (int?)null);
-
-            if (paramIniPlugy == null)
+            try
             {
-                int? result = _iniDefault.GetValue(section, param, (int?)null);
-                return result ?? def;
+	            int? paramIniPlugy = _iniPlugy.GetValue(section, param, (int?)null);
+	
+	            if (paramIniPlugy == null)
+	            {
+	                int? result = _iniDefault.GetValue(section, param, (int?)null);
+	                return result ?? def;
+	            }
+	
+	            return paramIniPlugy ?? def;
             }
+            catch (Exception)
+            { }
 
-            return paramIniPlugy ?? def;
+            return def;
         }
 
         public void SetVal(string section, string param, string value)

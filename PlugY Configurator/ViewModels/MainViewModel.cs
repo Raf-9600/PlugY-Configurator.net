@@ -45,158 +45,164 @@ namespace PlugY_Configurator.ViewModels
                     return;
 
                 _plugyFullPath = value;
-                OnPropertyChanged();
+                
 
                 _ini.NotSet = true;
                 _ini.Initialization(value);
+                try
+                {
+                    // LAUNCHING
+                    Param = _ini.GetVal("LAUNCHING", "Param", string.Empty);
+                    Library = _ini.GetVal("LAUNCHING", "Library", string.Empty);
 
-                // LAUNCHING
-                Param = _ini.GetVal("LAUNCHING", "Param", string.Empty);
-                Library = _ini.GetVal("LAUNCHING", "Library", string.Empty);
+                    // GENERAL
+                    ActivePlugin = _ini.GetVal("GENERAL", "ActivePlugin", false);
+                    DisableBattleNet = _ini.GetVal("GENERAL", "DisableBattleNet", false);
+                    ActiveLogFile = _ini.GetVal("GENERAL", "ActiveLogFile", false);
+                    DllToLoad = _ini.GetVal("GENERAL", "DllToLoad", string.Empty);
+                    DllToLoad2 = _ini.GetVal("GENERAL", "DllToLoad2", string.Empty);
+                    ActiveCommands = _ini.GetVal("GENERAL", "ActiveCommands", false);
+                    ActiveCheckMemory = _ini.GetVal("GENERAL", "ActiveCheckMemory", false);
+                    ActiveAllOthersFeatures = _ini.GetVal("GENERAL", "ActiveAllOthersFeatures", false);
 
-                // GENERAL
-                ActivePlugin = _ini.GetVal("GENERAL", "ActivePlugin", false);
-                DisableBattleNet = _ini.GetVal("GENERAL", "DisableBattleNet", false);
-                ActiveLogFile = _ini.GetVal("GENERAL", "ActiveLogFile", false);
-                DllToLoad = _ini.GetVal("GENERAL", "DllToLoad", string.Empty);
-                DllToLoad2 = _ini.GetVal("GENERAL", "DllToLoad2", string.Empty);
-                ActiveCommands = _ini.GetVal("GENERAL", "ActiveCommands", false);
-                ActiveCheckMemory = _ini.GetVal("GENERAL", "ActiveCheckMemory", false);
-                ActiveAllOthersFeatures = _ini.GetVal("GENERAL", "ActiveAllOthersFeatures", false);
+                    // WINDOWED
+                    ActiveWindowed = _ini.GetVal("WINDOWED", "ActiveWindowed", false);
+                    RemoveBorder = _ini.GetVal("WINDOWED", "RemoveBorder", false);
+                    WindowOnTop = _ini.GetVal("WINDOWED", "WindowOnTop", false);
+                    Maximized = _ini.GetVal("WINDOWED", "Maximized", false);
+                    SetWindowPos = _ini.GetVal("WINDOWED", "SetWindowPos", false);
+                    WindowedX = _ini.GetVal("WINDOWED", "X", 0);
+                    WindowedY = _ini.GetVal("WINDOWED", "Y", 0);
+                    WindowedWidth = _ini.GetVal("WINDOWED", "Width", 0);
+                    WindowedHeight = _ini.GetVal("WINDOWED", "Height", 0);
+                    LockMouseOnStartup = _ini.GetVal("WINDOWED", "LockMouseOnStartup", false);
 
-                // WINDOWED
-                ActiveWindowed = _ini.GetVal("WINDOWED", "ActiveWindowed", false);
-                RemoveBorder = _ini.GetVal("WINDOWED", "RemoveBorder", false);
-                WindowOnTop = _ini.GetVal("WINDOWED", "WindowOnTop", false);
-                Maximized = _ini.GetVal("WINDOWED", "Maximized", false);
-                SetWindowPos = _ini.GetVal("WINDOWED", "SetWindowPos", false);
-                WindowedX = _ini.GetVal("WINDOWED", "X", 0);
-                WindowedY = _ini.GetVal("WINDOWED", "Y", 0);
-                WindowedWidth = _ini.GetVal("WINDOWED", "Width", 0);
-                WindowedHeight = _ini.GetVal("WINDOWED", "Height", 0);
-                LockMouseOnStartup = _ini.GetVal("WINDOWED", "LockMouseOnStartup", false);
+                    // LANGUAGE
+                    ActiveChangeLanguage = _ini.GetVal("LANGUAGE", "ActiveChangeLanguage", false);
+                    ActiveLanguageManagement = _ini.GetVal("LANGUAGE", "ActiveLanguageManagement", false);
 
-                // LANGUAGE
-                ActiveChangeLanguage = _ini.GetVal("LANGUAGE", "ActiveChangeLanguage", false);
-                ActiveLanguageManagement = _ini.GetVal("LANGUAGE", "ActiveLanguageManagement", false);
+                    var selectedLanguage_ini = _ini.GetVal("LANGUAGE", "SelectedLanguage", string.Empty);
+                    SelectedLanguage = Array.IndexOf(_languageListWrite, selectedLanguage_ini);
 
-                var selectedLanguage_ini = _ini.GetVal("LANGUAGE", "SelectedLanguage", string.Empty);
-                SelectedLanguage = Array.IndexOf(_languageListWrite, selectedLanguage_ini);
+                    var defaultLanguage_ini = _ini.GetVal("LANGUAGE", "DefaultLanguage", string.Empty);
+                    DefaultLanguage = Array.IndexOf(_languageListWrite, defaultLanguage_ini);
 
-                var defaultLanguage_ini = _ini.GetVal("LANGUAGE", "DefaultLanguage", string.Empty);
-                DefaultLanguage = Array.IndexOf(_languageListWrite, defaultLanguage_ini);
-
-                AvlblLngs_ENG = _ini.GetAvailableLanguages("ENG");
-                AvlblLngs_ESP = _ini.GetAvailableLanguages("ESP");
-                AvlblLngs_DEU = _ini.GetAvailableLanguages("DEU");
-                AvlblLngs_FRA = _ini.GetAvailableLanguages("FRA");
-                AvlblLngs_POR = _ini.GetAvailableLanguages("POR");
-                AvlblLngs_ITA = _ini.GetAvailableLanguages("ITA");
-                AvlblLngs_JPN = _ini.GetAvailableLanguages("JPN");
-                AvlblLngs_KOR = _ini.GetAvailableLanguages("KOR");
-                AvlblLngs_SIN = _ini.GetAvailableLanguages("SIN");
-                AvlblLngs_CHI = _ini.GetAvailableLanguages("CHI");
-                AvlblLngs_POL = _ini.GetAvailableLanguages("POL");
-                AvlblLngs_RUS = _ini.GetAvailableLanguages("RUS");
+                    AvlblLngs_ENG = _ini.GetAvailableLanguages("ENG");
+                    AvlblLngs_ESP = _ini.GetAvailableLanguages("ESP");
+                    AvlblLngs_DEU = _ini.GetAvailableLanguages("DEU");
+                    AvlblLngs_FRA = _ini.GetAvailableLanguages("FRA");
+                    AvlblLngs_POR = _ini.GetAvailableLanguages("POR");
+                    AvlblLngs_ITA = _ini.GetAvailableLanguages("ITA");
+                    AvlblLngs_JPN = _ini.GetAvailableLanguages("JPN");
+                    AvlblLngs_KOR = _ini.GetAvailableLanguages("KOR");
+                    AvlblLngs_SIN = _ini.GetAvailableLanguages("SIN");
+                    AvlblLngs_CHI = _ini.GetAvailableLanguages("CHI");
+                    AvlblLngs_POL = _ini.GetAvailableLanguages("POL");
+                    AvlblLngs_RUS = _ini.GetAvailableLanguages("RUS");
 
 
-                // SAVEPATH
-                ActiveSavePathChange = _ini.GetVal("SAVEPATH", "ActiveSavePathChange", false);
-                SavePath = _ini.GetVal("SAVEPATH", "SavePath", string.Empty);
+                    // SAVEPATH
+                    ActiveSavePathChange = _ini.GetVal("SAVEPATH", "ActiveSavePathChange", false);
+                    SavePath = _ini.GetVal("SAVEPATH", "SavePath", string.Empty);
 
-                // MAIN SCREEN
-                ActiveVersionTextChange = _ini.GetVal("MAIN SCREEN", "ActiveVersionTextChange", false);
-                VersionText = _ini.GetVal("MAIN SCREEN", "VersionText", string.Empty);
-                ColorOfVersionText = _ini.GetVal("MAIN SCREEN", "ColorOfVersionText", 0);
-                ActivePrintPlugYVersion = _ini.GetVal("MAIN SCREEN", "ActivePrintPlugYVersion", false);
-                ColorOfPlugYVersion = _ini.GetVal("MAIN SCREEN", "ColorOfPlugYVersion", 0);
+                    // MAIN SCREEN
+                    ActiveVersionTextChange = _ini.GetVal("MAIN SCREEN", "ActiveVersionTextChange", false);
+                    VersionText = _ini.GetVal("MAIN SCREEN", "VersionText", string.Empty);
+                    ColorOfVersionText = _ini.GetVal("MAIN SCREEN", "ColorOfVersionText", 0);
+                    ActivePrintPlugYVersion = _ini.GetVal("MAIN SCREEN", "ActivePrintPlugYVersion", false);
+                    ColorOfPlugYVersion = _ini.GetVal("MAIN SCREEN", "ColorOfPlugYVersion", 0);
 
-                // STASH
-                ActiveBigStash = _ini.GetVal("STASH", "ActiveBigStash", false);
-                ActiveMultiPageStash = _ini.GetVal("STASH", "ActiveMultiPageStash", false);
-                NbPagesPerIndex = _ini.GetVal("STASH", "NbPagesPerIndex", 0);
-                NbPagesPerIndex2 = _ini.GetVal("STASH", "NbPagesPerIndex2", 0);
-                MaxPersonnalPages = _ini.GetVal("STASH", "MaxPersonnalPages", 0);
-                ActiveSharedStash = _ini.GetVal("STASH", "ActiveSharedStash", false);
-                SeparateHardcoreStash = _ini.GetVal("STASH", "SeparateHardcoreStash", false);
-                OpenSharedStashOnLoading = _ini.GetVal("STASH", "OpenSharedStashOnLoading", false);
-                SharedStashFilename = _ini.GetVal("STASH", "SharedStashFilename", string.Empty);
-                DisplaySharedSetItemNameInGreen = _ini.GetVal("STASH", "DisplaySharedSetItemNameInGreen", false);
-                MaxSharedPages = _ini.GetVal("STASH", "MaxSharedPages", 0);
-                ActiveSharedGold = _ini.GetVal("STASH", "ActiveSharedGold", false);
-                PosXPreviousBtn = _ini.GetVal("STASH", "PosXPreviousBtn", -1);
-                PosYPreviousBtn = _ini.GetVal("STASH", "PosYPreviousBtn", -1);
-                PosXNextBtn = _ini.GetVal("STASH", "PosXNextBtn", -1);
-                PosYNextBtn = _ini.GetVal("STASH", "PosYNextBtn", -1);
-                PosXSharedBtn = _ini.GetVal("STASH", "PosXSharedBtn", -1);
-                PosYSharedBtn = _ini.GetVal("STASH", "PosYSharedBtn", -1);
-                PosXPreviousIndexBtn = _ini.GetVal("STASH", "PosXPreviousIndexBtn", -1);
-                PosYPreviousIndexBtn = _ini.GetVal("STASH", "PosYPreviousIndexBtn", -1);
-                PosXNextIndexBtn = _ini.GetVal("STASH", "PosXNextIndexBtn", -1);
-                PosYNextIndexBtn = _ini.GetVal("STASH", "PosYNextIndexBtn", -1);
-                PosXPutGoldBtn = _ini.GetVal("STASH", "PosXPutGoldBtn", -1);
-                PosYPutGoldBtn = _ini.GetVal("STASH", "PosYPutGoldBtn", -1);
-                PosXTakeGoldBtn = _ini.GetVal("STASH", "PosXTakeGoldBtn", -1);
-                PosYTakeGoldBtn = _ini.GetVal("STASH", "PosYTakeGoldBtn", -1);
+                    // STASH
+                    ActiveBigStash = _ini.GetVal("STASH", "ActiveBigStash", false);
+                    ActiveMultiPageStash = _ini.GetVal("STASH", "ActiveMultiPageStash", false);
+                    NbPagesPerIndex = _ini.GetVal("STASH", "NbPagesPerIndex", 0);
+                    NbPagesPerIndex2 = _ini.GetVal("STASH", "NbPagesPerIndex2", 0);
+                    MaxPersonnalPages = _ini.GetVal("STASH", "MaxPersonnalPages", 0);
+                    ActiveSharedStash = _ini.GetVal("STASH", "ActiveSharedStash", false);
+                    SeparateHardcoreStash = _ini.GetVal("STASH", "SeparateHardcoreStash", false);
+                    OpenSharedStashOnLoading = _ini.GetVal("STASH", "OpenSharedStashOnLoading", false);
+                    SharedStashFilename = _ini.GetVal("STASH", "SharedStashFilename", string.Empty);
+                    DisplaySharedSetItemNameInGreen = _ini.GetVal("STASH", "DisplaySharedSetItemNameInGreen", false);
+                    MaxSharedPages = _ini.GetVal("STASH", "MaxSharedPages", 0);
+                    ActiveSharedGold = _ini.GetVal("STASH", "ActiveSharedGold", false);
+                    PosXPreviousBtn = _ini.GetVal("STASH", "PosXPreviousBtn", -1);
+                    PosYPreviousBtn = _ini.GetVal("STASH", "PosYPreviousBtn", -1);
+                    PosXNextBtn = _ini.GetVal("STASH", "PosXNextBtn", -1);
+                    PosYNextBtn = _ini.GetVal("STASH", "PosYNextBtn", -1);
+                    PosXSharedBtn = _ini.GetVal("STASH", "PosXSharedBtn", -1);
+                    PosYSharedBtn = _ini.GetVal("STASH", "PosYSharedBtn", -1);
+                    PosXPreviousIndexBtn = _ini.GetVal("STASH", "PosXPreviousIndexBtn", -1);
+                    PosYPreviousIndexBtn = _ini.GetVal("STASH", "PosYPreviousIndexBtn", -1);
+                    PosXNextIndexBtn = _ini.GetVal("STASH", "PosXNextIndexBtn", -1);
+                    PosYNextIndexBtn = _ini.GetVal("STASH", "PosYNextIndexBtn", -1);
+                    PosXPutGoldBtn = _ini.GetVal("STASH", "PosXPutGoldBtn", -1);
+                    PosYPutGoldBtn = _ini.GetVal("STASH", "PosYPutGoldBtn", -1);
+                    PosXTakeGoldBtn = _ini.GetVal("STASH", "PosXTakeGoldBtn", -1);
+                    PosYTakeGoldBtn = _ini.GetVal("STASH", "PosYTakeGoldBtn", -1);
 
-                // STATS POINTS
-                ActiveStatsUnassignment = _ini.GetVal("STATS POINTS", "ActiveStatsUnassignment", false);
-                var keyUsed_ini = _ini.GetVal("STATS POINTS", "KeyUsed", 18);
-                if (keyUsed_ini == 17) KeyUsed = 0;
-                else if (keyUsed_ini == 18) KeyUsed = 1;
+                    // STATS POINTS
+                    ActiveStatsUnassignment = _ini.GetVal("STATS POINTS", "ActiveStatsUnassignment", false);
+                    var keyUsed_ini = _ini.GetVal("STATS POINTS", "KeyUsed", 18);
+                    if (keyUsed_ini == 17) KeyUsed = 0;
+                    else if (keyUsed_ini == 18) KeyUsed = 1;
 
-                ActiveShiftClickLimit = _ini.GetVal("STATS POINTS", "ActiveShiftClickLimit", false);
-                LimitValueToShiftClick = _ini.GetVal("STATS POINTS", "LimitValueToShiftClick", 5);
+                    ActiveShiftClickLimit = _ini.GetVal("STATS POINTS", "ActiveShiftClickLimit", false);
+                    LimitValueToShiftClick = _ini.GetVal("STATS POINTS", "LimitValueToShiftClick", 5);
 
-                // STAT ON LEVEL UP
-                ActiveStatPerLevelUp = _ini.GetVal("STAT ON LEVEL UP", "ActiveStatPerLevelUp", false);
-                StatPerLevelUp = _ini.GetVal("STAT ON LEVEL UP", "StatPerLevelUp", 0);
+                    // STAT ON LEVEL UP
+                    ActiveStatPerLevelUp = _ini.GetVal("STAT ON LEVEL UP", "ActiveStatPerLevelUp", false);
+                    StatPerLevelUp = _ini.GetVal("STAT ON LEVEL UP", "StatPerLevelUp", 0);
 
-                // SKILLS POINTS
-                ActiveSkillsUnassignment = _ini.GetVal("SKILLS POINTS", "ActiveSkillsUnassignment", false);
-                ActiveSkillsUnassignmentOneForOne = _ini.GetVal("SKILLS POINTS", "ActiveSkillsUnassignmentOneForOne", false);
-                PosXUnassignSkillBtn = _ini.GetVal("SKILLS POINTS", "PosXUnassignSkillBtn", -1);
-                PosYUnassignSkillBtn = _ini.GetVal("SKILLS POINTS", "PosYUnassignSkillBtn", -1);
+                    // SKILLS POINTS
+                    ActiveSkillsUnassignment = _ini.GetVal("SKILLS POINTS", "ActiveSkillsUnassignment", false);
+                    ActiveSkillsUnassignmentOneForOne = _ini.GetVal("SKILLS POINTS", "ActiveSkillsUnassignmentOneForOne", false);
+                    PosXUnassignSkillBtn = _ini.GetVal("SKILLS POINTS", "PosXUnassignSkillBtn", -1);
+                    PosYUnassignSkillBtn = _ini.GetVal("SKILLS POINTS", "PosYUnassignSkillBtn", -1);
 
-                // SKILL ON LEVEL UP
-                ActiveSkillPerLevelUp = _ini.GetVal("SKILL ON LEVEL UP", "ActiveSkillPerLevelUp", false);
-                SkillPerLevelUp = _ini.GetVal("SKILL ON LEVEL UP", "SkillPerLevelUp", 1);
+                    // SKILL ON LEVEL UP
+                    ActiveSkillPerLevelUp = _ini.GetVal("SKILL ON LEVEL UP", "ActiveSkillPerLevelUp", false);
+                    SkillPerLevelUp = _ini.GetVal("SKILL ON LEVEL UP", "SkillPerLevelUp", 1);
 
-                // WORLD EVENT
-                ActiveWorldEvent = _ini.GetVal("WORLD EVENT", "ActiveWorldEvent", false);
-                ShowCounterInAllDifficulty = _ini.GetVal("WORLD EVENT", "ShowCounterInAllDifficulty", false);
-                ItemsToSell = _ini.GetVal("WORLD EVENT", "ItemsToSell", string.Empty);
-                MonsterID = _ini.GetVal("WORLD EVENT", "MonsterID", 333);
-                OwnSOJSoldChargeFor = _ini.GetVal("WORLD EVENT", "OwnSOJSoldChargeFor", 100);
-                InititalSOJSoldMin = _ini.GetVal("WORLD EVENT", "InititalSOJSoldMin", 200);
-                InititalSOJSoldMax = _ini.GetVal("WORLD EVENT", "InititalSOJSoldMax", 3000);
-                TriggerAtEachSOJSoldMin = _ini.GetVal("WORLD EVENT", "TriggerAtEachSOJSoldMin", 75);
-                TriggerAtEachSOJSoldMax = _ini.GetVal("WORLD EVENT", "TriggerAtEachSOJSoldMax", 125);
-                ActiveAutoSell = _ini.GetVal("WORLD EVENT", "ActiveAutoSell", false);
-                TimeBeforeAutoSellMin = _ini.GetVal("WORLD EVENT", "TimeBeforeAutoSellMin", 0);
-                TimeBeforeAutoSellMax = _ini.GetVal("WORLD EVENT", "TimeBeforeAutoSellMax", 1200);
+                    // WORLD EVENT
+                    ActiveWorldEvent = _ini.GetVal("WORLD EVENT", "ActiveWorldEvent", false);
+                    ShowCounterInAllDifficulty = _ini.GetVal("WORLD EVENT", "ShowCounterInAllDifficulty", false);
+                    ItemsToSell = _ini.GetVal("WORLD EVENT", "ItemsToSell", string.Empty);
+                    MonsterID = _ini.GetVal("WORLD EVENT", "MonsterID", 333);
+                    OwnSOJSoldChargeFor = _ini.GetVal("WORLD EVENT", "OwnSOJSoldChargeFor", 100);
+                    InititalSOJSoldMin = _ini.GetVal("WORLD EVENT", "InititalSOJSoldMin", 200);
+                    InititalSOJSoldMax = _ini.GetVal("WORLD EVENT", "InititalSOJSoldMax", 3000);
+                    TriggerAtEachSOJSoldMin = _ini.GetVal("WORLD EVENT", "TriggerAtEachSOJSoldMin", 75);
+                    TriggerAtEachSOJSoldMax = _ini.GetVal("WORLD EVENT", "TriggerAtEachSOJSoldMax", 125);
+                    ActiveAutoSell = _ini.GetVal("WORLD EVENT", "ActiveAutoSell", false);
+                    TimeBeforeAutoSellMin = _ini.GetVal("WORLD EVENT", "TimeBeforeAutoSellMin", 0);
+                    TimeBeforeAutoSellMax = _ini.GetVal("WORLD EVENT", "TimeBeforeAutoSellMax", 1200);
 
-                // UBER QUEST
-                ActiveUberQuest = _ini.GetVal("UBER QUEST", "ActiveUberQuest", false);
+                    // UBER QUEST
+                    ActiveUberQuest = _ini.GetVal("UBER QUEST", "ActiveUberQuest", false);
 
-                // INTERFACE
-                ActiveNewStatsInterface = _ini.GetVal("INTERFACE", "ActiveNewStatsInterface", false);
-                SelectMainPageOnOpenning = _ini.GetVal("INTERFACE", "SelectMainPageOnOpenning", false);
-                PrintButtonsBackgroundOnMainStatsPage = _ini.GetVal("INTERFACE", "PrintButtonsBackgroundOnMainStatsPage", false);
+                    // INTERFACE
+                    ActiveNewStatsInterface = _ini.GetVal("INTERFACE", "ActiveNewStatsInterface", false);
+                    SelectMainPageOnOpenning = _ini.GetVal("INTERFACE", "SelectMainPageOnOpenning", false);
+                    PrintButtonsBackgroundOnMainStatsPage = _ini.GetVal("INTERFACE", "PrintButtonsBackgroundOnMainStatsPage", false);
 
-                // EXTRA
-                ActiveLaunchAnyNumberOfLOD = _ini.GetVal("EXTRA", "ActiveLaunchAnyNumberOfLOD", false);
-                AlwaysRegenMapInSP = _ini.GetVal("EXTRA", "AlwaysRegenMapInSP", false);
-                NBPlayersByDefault = _ini.GetVal("EXTRA", "NBPlayersByDefault", 0);
-                ActiveDisplayItemLevel = _ini.GetVal("EXTRA", "ActiveDisplayItemLevel", false);
-                AlwaysDisplayLifeAndManaValues = _ini.GetVal("EXTRA", "AlwaysDisplayLifeAndManaValues", 0);
-                EnabledTXTFilesWhenMSExcelOpenIt = _ini.GetVal("EXTRA", "EnabledTXTFilesWhenMSExcelOpenIt", false);
-                ActiveDisplayBaseStatsValue = _ini.GetVal("EXTRA", "ActiveDisplayBaseStatsValue", false);
-                ActiveLadderRunewords = _ini.GetVal("EXTRA", "ActiveLadderRunewords", false);
-                ActiveCowPortalWhenCowKingWasKilled = _ini.GetVal("EXTRA", "ActiveCowPortalWhenCowKingWasKilled", false);
-                ActiveDoNotCloseNihlathakPortal = _ini.GetVal("EXTRA", "ActiveDoNotCloseNihlathakPortal", false);
+                    // EXTRA
+                    ActiveLaunchAnyNumberOfLOD = _ini.GetVal("EXTRA", "ActiveLaunchAnyNumberOfLOD", false);
+                    AlwaysRegenMapInSP = _ini.GetVal("EXTRA", "AlwaysRegenMapInSP", false);
+                    NBPlayersByDefault = _ini.GetVal("EXTRA", "NBPlayersByDefault", 0);
+                    ActiveDisplayItemLevel = _ini.GetVal("EXTRA", "ActiveDisplayItemLevel", false);
+                    AlwaysDisplayLifeAndManaValues = _ini.GetVal("EXTRA", "AlwaysDisplayLifeAndManaValues", 0);
+                    EnabledTXTFilesWhenMSExcelOpenIt = _ini.GetVal("EXTRA", "EnabledTXTFilesWhenMSExcelOpenIt", false);
+                    ActiveDisplayBaseStatsValue = _ini.GetVal("EXTRA", "ActiveDisplayBaseStatsValue", false);
+                    ActiveLadderRunewords = _ini.GetVal("EXTRA", "ActiveLadderRunewords", false);
+                    ActiveCowPortalWhenCowKingWasKilled = _ini.GetVal("EXTRA", "ActiveCowPortalWhenCowKingWasKilled", false);
+                    ActiveDoNotCloseNihlathakPortal = _ini.GetVal("EXTRA", "ActiveDoNotCloseNihlathakPortal", false);
+                }
+                catch (Exception)
+                { }
 
                 _ini.NotSet = false;
+
+                OnPropertyChanged();
             }
         }
 
@@ -205,10 +211,13 @@ namespace PlugY_Configurator.ViewModels
             // Если в Винде тёмная тема, то включаем её и в программе
             if (!_model.DetectLightTheme())
                 ThemeManager.Current.ChangeTheme(System.Windows.Application.Current, "Dark.Crimson");
-            
 
             DpiScale dpi = VisualTreeHelper.GetDpi(new System.Windows.Controls.Control());
             double screenRealWidth = SystemParameters.PrimaryScreenWidth * dpi.DpiScaleX;
+
+            //if (currentUICulture == "ru") MainWindowWidth = 1330;
+            if (MainWindowWidth > screenRealWidth)
+                MainWindowWidth = screenRealWidth - 20;
 
 
             string workFile = string.Empty;
@@ -234,6 +243,7 @@ namespace PlugY_Configurator.ViewModels
                 currentUICulture = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
             }
 
+
             for (int i = 0; i < Sttngs_Languages.Count; i++)
             {
                 if (Sttngs_Languages[i].TwoLetterISOLanguageName == currentUICulture)
@@ -243,10 +253,18 @@ namespace PlugY_Configurator.ViewModels
                 }
             }
 
-            //if (currentUICulture == "ru") MainWindowWidth = 1330;
-            if (MainWindowWidth > screenRealWidth)
-                MainWindowWidth = screenRealWidth - 20;
-
+            if (Sttngs_Languages_Index == -1)
+            {
+                currentUICulture = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+                for (int i = 0; i < Sttngs_Languages.Count; i++)
+                {
+                    if (Sttngs_Languages[i].TwoLetterISOLanguageName == currentUICulture)
+                    {
+                        Sttngs_Languages_Index = i;
+                        break;
+                    }
+                }
+            }
 
             if (!File.Exists(workFile))
             {
@@ -258,9 +276,14 @@ namespace PlugY_Configurator.ViewModels
                 PlugyFullPath = workFile;
             else
             {
+                findPIni:
                 MessageBoxResult msgBx = MessageBox.Show(lang.PlugYiniNotFound_Question, lang.PlugYiniNotFound_Heading, MessageBoxButton.OKCancel, MessageBoxImage.Error);
                 if (msgBx == MessageBoxResult.OK)
+                {
                     PlugYRefresh_Click.Execute(null);
+                    if (string.IsNullOrEmpty(PlugyFullPath))
+                        goto findPIni;
+                }
                 else
                     Environment.Exit(0);
             }
@@ -287,11 +310,14 @@ namespace PlugY_Configurator.ViewModels
                 return new RelayCommand<EventArgs>(async (args) =>
                 {
                     System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-                    dispatcherTimer.Tick += (sender, args) =>
+                    dispatcherTimer.Tick += async (sender, args) =>
                     {
-                        if (_model.UpdateFind())
-                            NewVer_Visab = Visibility.Visible;
-                        else NewVer_Visab = Visibility.Collapsed;
+                        await Task.Run(() =>
+                        {
+                            if (_model.UpdateFind())
+                                NewVer_Visab = Visibility.Visible;
+                        });
+
 
                         dispatcherTimer.Stop();
                     };
@@ -424,7 +450,7 @@ namespace PlugY_Configurator.ViewModels
             {
                 return _plugYRefresh_Click ?? (_plugYRefresh_Click = new RelayCommand(() =>
                 {
-                    string pIni = _model.DlgFindFile("PlugY.ini", "PlugY.ini|PlugY.ini|All Ini|*.ini|All Files|*.*", ".ini", _model.FindInstalledDiablo2());
+                    string pIni = _model.DlgFindFile("PlugY.ini", $"PlugY.ini|PlugY.ini|{lang.DlgFolderPlugyIni_AllIni}|*.ini|{lang.DlgFolderPlugyIni_AllFiles}|*.*", ".ini", _model.FindInstalledDiablo2());
 
                     if(!string.IsNullOrEmpty(pIni))
                         PlugyFullPath = pIni;
