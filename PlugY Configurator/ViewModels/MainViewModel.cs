@@ -155,7 +155,7 @@ namespace PlugY_Configurator.ViewModels
 
                     // SKILLS POINTS
                     ActiveSkillsUnassignment = _ini.GetVal("SKILLS POINTS", "ActiveSkillsUnassignment", false);
-                    ActiveSkillsUnassignmentOneForOne = _ini.GetVal("SKILLS POINTS", "ActiveSkillsUnassignmentOneForOne", false);
+                    ActiveSkillsUnassignmentOneForOne = _ini.GetVal("SKILLS POINTS", "ActiveSkillsUnassignmentOneByOne", false);
                     PosXUnassignSkillBtn = _ini.GetVal("SKILLS POINTS", "PosXUnassignSkillBtn", -1);
                     PosYUnassignSkillBtn = _ini.GetVal("SKILLS POINTS", "PosYUnassignSkillBtn", -1);
 
@@ -1775,7 +1775,7 @@ namespace PlugY_Configurator.ViewModels
             get { return _activeSkillsUnassignmentOneForOne; }
             set
             {
-                _ini.SetVal("SKILLS POINTS", "ActiveSkillsUnassignmentOneForOne", value);
+                _ini.SetVal("SKILLS POINTS", "ActiveSkillsUnassignmentOneByOne", value);
 
                 _activeSkillsUnassignmentOneForOne = value;
                 OnPropertyChanged();

@@ -335,7 +335,7 @@
     <value>Не запускать игру, если не всё активировалось</value>
   </data>
   <data name="ActiveCheckMemory_Hint" xml:space="preserve">
-    <value>Если вы выберите эту опцию, то при старте игры PlugY будет проверять, удалось ли активировать все указанные вами параметры. В случае если какой-то из параметров не удастся активировать, процесс запуска игры будет отменён.</value>
+    <value>Если вы выберете эту опцию, то при старте игры PlugY будет проверять, удалось ли активировать все указанные вами параметры. В случае если какой-то из параметров не удастся активировать, процесс запуска игры будет отменён.</value>
   </data>
   <data name="ActiveAllOthersFeatures" xml:space="preserve">
     <value>Включить скрытые или недоработанные функции</value>
@@ -639,7 +639,7 @@
     <value>Библиотека PlugY</value>
   </data>
   <data name="Library_Hint" xml:space="preserve">
-    <value>Если вы не укажите библиотеку, то PlugY не будет задействован.</value>
+    <value>Если вы не укажете библиотеку, то PlugY не будет задействован.</value>
   </data>
   <data name="ColorOfPlugYVersion" xml:space="preserve">
     <value>Цвет версии PlugY:</value>
@@ -660,7 +660,7 @@
     <value>Не рекомендуется активировать данную опцию, поскольку она способна ухудшить производительность игры.</value>
   </data>
   <data name="ActiveSkillsUnassignmentOneForOne" xml:space="preserve">
-    <value>Перераспределять очки умений 1 к 1</value>
+    <value>Игнорировать количество за уровень</value>
   </data>
   <data name="ActiveLanguageManagement" xml:space="preserve">
     <value>Уточнение выбранной локализации</value>
@@ -796,5 +796,8 @@
   </data>
   <data name="DlgFolderPlugyIni_AllIni" xml:space="preserve">
     <value>Все .ini</value>
+  </data>
+  <data name="ActiveSkillsUnassignmentOneForOne_Hint" xml:space="preserve">
+    <value>Игнорировать настройки получаемого количества очков умений за уровень</value>
   </data>
 </root>
