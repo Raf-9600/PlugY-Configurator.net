@@ -355,20 +355,7 @@ namespace PlugY_Configurator.ViewModels
 
         #region MainSettings
 
-        private ICommand _btnStart_Click;
-        public ICommand BtnStart_Click
-        {
-            get
-            {
-                return _btnStart_Click ?? (_btnStart_Click = new RelayCommand(async () =>
-                {
-
-
-                }));
-            }
-        }
-
-        public ObservableCollection<CultureInfo> Sttngs_Languages { get; set; } = new ObservableCollection<CultureInfo> { new CultureInfo("ru"),  new CultureInfo("de") };
+        public ObservableCollection<CultureInfo> Sttngs_Languages { get; set; } = new ObservableCollection<CultureInfo> { new CultureInfo("ru"),  new CultureInfo("de"), new CultureInfo("en") };
 
 
         private int _sttngs_Languages_Index = -1;
@@ -380,7 +367,11 @@ namespace PlugY_Configurator.ViewModels
                 if (value != _sttngs_Languages_Index)
                 {
                     if (value != -1)
-                        WpfLocalization.TranslationSource.Instance.CurrentCulture = Sttngs_Languages[value];
+                    {
+                        CultureInfo cultInfoValue = Sttngs_Languages[value];
+                        WpfLocalization.TranslationSource.Instance.CurrentCulture = cultInfoValue; // меняем локализацию xaml
+                        System.Threading.Thread.CurrentThread.CurrentUICulture = cultInfoValue; // меняем локализацию в коде
+                    }
 
                     _sttngs_Languages_Index = value;
                     OnPropertyChanged();

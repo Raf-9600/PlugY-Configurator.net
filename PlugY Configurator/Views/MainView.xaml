@@ -249,6 +249,7 @@
                 <Style TargetType="{x:Type Controls:NumericUpDown}">
                     <Setter Property="Margin" Value="10,0,0,0" />
                     <Setter Property="Maximum" Value="999999" />
+                    <Setter Property="Minimum" Value="-1" />
                     <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
                     <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
                     <Setter Property="NumericInputMode" Value="Numbers" />
@@ -312,8 +313,7 @@
                                 <CheckBox
                                     Margin="5"
                                     Content="{loc:Loc ActiveSavePathChange}"
-                                    IsChecked="{Binding ActiveSavePathChange}"
-                                    ToolTip="{loc:Loc ActiveSavePathChange_Hint}" />
+                                    IsChecked="{Binding ActiveSavePathChange}" />
                                 <TextBox
                                     Margin="5,5,0,5"
                                     IsEnabled="{Binding ActiveSavePathChange}"
@@ -852,19 +852,19 @@
                             <StackPanel>
                                 <DockPanel ToolTip="{loc:Loc MaxPersonnalPages_Hint}">
                                     <TextBlock Text="{loc:Loc MaxPersonnalPages}" />
-                                    <Controls:NumericUpDown Value="{Binding MaxPersonnalPages}" />
+                                    <Controls:NumericUpDown Minimum="0" Value="{Binding MaxPersonnalPages}" />
                                 </DockPanel>
                                 <DockPanel ToolTip="{loc:Loc MaxSharedPages_Hint}">
                                     <TextBlock Text="{loc:Loc MaxSharedPages}" />
-                                    <Controls:NumericUpDown Value="{Binding MaxSharedPages}" />
+                                    <Controls:NumericUpDown Minimum="0" Value="{Binding MaxSharedPages}" />
                                 </DockPanel>
                                 <DockPanel ToolTip="{loc:Loc NbPagesPerIndex_Hint}">
                                     <TextBlock Text="{loc:Loc NbPagesPerIndex}" />
-                                    <Controls:NumericUpDown Value="{Binding NbPagesPerIndex}" />
+                                    <Controls:NumericUpDown Minimum="0" Value="{Binding NbPagesPerIndex}" />
                                 </DockPanel>
                                 <DockPanel ToolTip="{loc:Loc NbPagesPerIndex2_Hint}">
                                     <TextBlock Text="{loc:Loc NbPagesPerIndex2}" />
-                                    <Controls:NumericUpDown Value="{Binding NbPagesPerIndex2}" />
+                                    <Controls:NumericUpDown Minimum="0" Value="{Binding NbPagesPerIndex2}" />
                                 </DockPanel>
 
                                 <TextBox
@@ -916,11 +916,12 @@
                                         <Controls:NumericUpDown
                                             Margin="10,1.5,0,1.5"
                                             HorizontalAlignment="Right"
+                                            Minimum="0"
                                             Value="{Binding MonsterID}" />
                                     </DockPanel>
                                     <DockPanel>
                                         <TextBlock Text="{loc:Loc OwnSOJSoldChargeFor}" ToolTip="{loc:Loc OwnSOJSoldChargeFor_Hint}" />
-                                        <Controls:NumericUpDown Value="{Binding OwnSOJSoldChargeFor}" />
+                                        <Controls:NumericUpDown Minimum="0" Value="{Binding OwnSOJSoldChargeFor}" />
                                     </DockPanel>
 
                                     <Controls:MetroHeader
@@ -936,12 +937,18 @@
 
                                             <DockPanel Grid.Column="0" HorizontalAlignment="Center">
                                                 <TextBlock FontSize="12" Text="{loc:Loc Min}" />
-                                                <Controls:NumericUpDown HorizontalAlignment="Left" Value="{Binding InititalSOJSoldMin}" />
+                                                <Controls:NumericUpDown
+                                                    HorizontalAlignment="Left"
+                                                    Minimum="0"
+                                                    Value="{Binding InititalSOJSoldMin}" />
                                             </DockPanel>
 
                                             <DockPanel Grid.Column="1" HorizontalAlignment="Center">
                                                 <TextBlock FontSize="12" Text="{loc:Loc Max}" />
-                                                <Controls:NumericUpDown HorizontalAlignment="Left" Value="{Binding InititalSOJSoldMax}" />
+                                                <Controls:NumericUpDown
+                                                    HorizontalAlignment="Left"
+                                                    Minimum="0"
+                                                    Value="{Binding InititalSOJSoldMax}" />
                                             </DockPanel>
 
                                         </Grid>
@@ -961,12 +968,18 @@
 
                                             <DockPanel Grid.Column="0" HorizontalAlignment="Center">
                                                 <TextBlock FontSize="12" Text="{loc:Loc Min}" />
-                                                <Controls:NumericUpDown HorizontalAlignment="Left" Value="{Binding TriggerAtEachSOJSoldMin}" />
+                                                <Controls:NumericUpDown
+                                                    HorizontalAlignment="Left"
+                                                    Minimum="0"
+                                                    Value="{Binding TriggerAtEachSOJSoldMin}" />
                                             </DockPanel>
 
                                             <DockPanel Grid.Column="1" HorizontalAlignment="Center">
                                                 <TextBlock FontSize="12" Text="{loc:Loc Max}" />
-                                                <Controls:NumericUpDown HorizontalAlignment="Left" Value="{Binding TriggerAtEachSOJSoldMax}" />
+                                                <Controls:NumericUpDown
+                                                    HorizontalAlignment="Left"
+                                                    Minimum="0"
+                                                    Value="{Binding TriggerAtEachSOJSoldMax}" />
                                             </DockPanel>
 
                                         </Grid>
@@ -991,12 +1004,18 @@
 
                                             <DockPanel Grid.Column="0" HorizontalAlignment="Center">
                                                 <TextBlock FontSize="12" Text="{loc:Loc Min}" />
-                                                <Controls:NumericUpDown HorizontalAlignment="Left" Value="{Binding TimeBeforeAutoSellMin}" />
+                                                <Controls:NumericUpDown
+                                                    HorizontalAlignment="Left"
+                                                    Minimum="0"
+                                                    Value="{Binding TimeBeforeAutoSellMin}" />
                                             </DockPanel>
 
                                             <DockPanel Grid.Column="1" HorizontalAlignment="Center">
                                                 <TextBlock FontSize="12" Text="{loc:Loc Max}" />
-                                                <Controls:NumericUpDown HorizontalAlignment="Left" Value="{Binding TimeBeforeAutoSellMax}" />
+                                                <Controls:NumericUpDown
+                                                    HorizontalAlignment="Left"
+                                                    Minimum="0"
+                                                    Value="{Binding TimeBeforeAutoSellMax}" />
                                             </DockPanel>
 
                                         </Grid>
@@ -1016,6 +1035,7 @@
             <TabItem.Resources>
                 <Style TargetType="{x:Type Controls:NumericUpDown}">
                     <Setter Property="Margin" Value="10,1.5" />
+                    <Setter Property="Minimum" Value="-1" />
                     <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
                     <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
                     <Setter Property="NumericInputMode" Value="Numbers" />
@@ -1041,30 +1061,35 @@
 
                                 <CheckBox Content="{loc:Loc Maximized}" />
                                 <CheckBox Content="{loc:Loc ActiveWindowed}" IsChecked="{Binding ActiveWindowed}" />
-                                <CheckBox Content="{loc:Loc RemoveBorder}" IsChecked="{Binding RemoveBorder}" />
-                                <CheckBox Content="{loc:Loc WindowOnTop}" IsChecked="{Binding WindowOnTop}" />
-                                <CheckBox Content="{loc:Loc LockMouseOnStartup}" IsChecked="{Binding LockMouseOnStartup}" />
-                                <CheckBox Content="{loc:Loc SetWindowPos}" IsChecked="{Binding SetWindowPos}" />
+                                <StackPanel Margin="0" IsEnabled="{Binding ActiveWindowed}">
+                                    <CheckBox Content="{loc:Loc RemoveBorder}" IsChecked="{Binding RemoveBorder}" />
+                                    <CheckBox Content="{loc:Loc WindowOnTop}" IsChecked="{Binding WindowOnTop}" />
+                                    <CheckBox Content="{loc:Loc LockMouseOnStartup}" IsChecked="{Binding LockMouseOnStartup}" />
+                                    <CheckBox
+                                        Content="{loc:Loc SetWindowPos}"
+                                        IsChecked="{Binding SetWindowPos}"
+                                        ToolTip="{loc:Loc Notes0}" />
 
-                                <DockPanel>
-                                    <TextBlock Text="{loc:Loc WindowedX}" />
-                                    <Controls:NumericUpDown Value="{Binding WindowedX}" />
-                                </DockPanel>
+                                    <DockPanel IsEnabled="{Binding SetWindowPos}" ToolTip="{loc:Loc Notes0}">
+                                        <TextBlock Text="{loc:Loc WindowedX}" />
+                                        <Controls:NumericUpDown Value="{Binding WindowedX}" />
+                                    </DockPanel>
 
-                                <DockPanel>
-                                    <TextBlock Text="{loc:Loc WindowedY}" />
-                                    <Controls:NumericUpDown Value="{Binding WindowedY}" />
-                                </DockPanel>
+                                    <DockPanel IsEnabled="{Binding SetWindowPos}" ToolTip="{loc:Loc Notes0}">
+                                        <TextBlock Text="{loc:Loc WindowedY}" />
+                                        <Controls:NumericUpDown Value="{Binding WindowedY}" />
+                                    </DockPanel>
 
-                                <DockPanel>
-                                    <TextBlock Text="{loc:Loc WindowedWidth}" />
-                                    <Controls:NumericUpDown Value="{Binding WindowedWidth}" />
-                                </DockPanel>
+                                    <DockPanel IsEnabled="{Binding SetWindowPos}">
+                                        <TextBlock Text="{loc:Loc WindowedWidth}" />
+                                        <Controls:NumericUpDown Value="{Binding WindowedWidth}" />
+                                    </DockPanel>
 
-                                <DockPanel>
-                                    <TextBlock Text="{loc:Loc WindowedHeight}" />
-                                    <Controls:NumericUpDown Value="{Binding WindowedHeight}" />
-                                </DockPanel>
+                                    <DockPanel IsEnabled="{Binding SetWindowPos}">
+                                        <TextBlock Text="{loc:Loc WindowedHeight}" />
+                                        <Controls:NumericUpDown Value="{Binding WindowedHeight}" />
+                                    </DockPanel>
+                                </StackPanel>
 
                             </StackPanel>
                         </Controls:MetroHeader>
@@ -1238,6 +1263,12 @@
                         Orientation="Vertical">
                         <Controls:MetroHeader Header="{loc:Loc Notes}">
                             <StackPanel MaxWidth="250">
+
+                                <TextBlock
+                                    Margin="0,3"
+                                    FontSize="15"
+                                    Text="{loc:Loc Notes0}"
+                                    TextWrapping="Wrap" />
 
                                 <TextBlock
                                     Margin="0,3"

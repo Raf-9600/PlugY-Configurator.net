@@ -10,7 +10,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:resx="clr-namespace:PlugY_Configurator.Resources.Translation"
     Title="{loc:Loc AboutProg}"
-    Width="590"
+    MaxWidth="590"
     MaxHeight="291"
     loc:Translation.ResourceManager="{x:Static resx:lang.ResourceManager}"
     BorderBrush="{DynamicResource AccentColorBrush}"
@@ -24,7 +24,7 @@
     ShowMaxRestoreButton="False"
     ShowMinButton="False"
     ShowTitleBar="True"
-    SizeToContent="Height"
+    SizeToContent="WidthAndHeight"
     WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">
 
