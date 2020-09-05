@@ -254,6 +254,7 @@
   </data>
   <data name="SharedStashFilename_Hint" xml:space="preserve">
     <value>Filename which contents of shared stash will be stored in.
+This file will be prefixed with "_LOD_" and have extension ".sss".
 Note that if you enter new name, existing file won't be renamed automatically, you'll have to do it yourself.</value>
   </data>
   <data name="DisplaySharedSetItemNameInGreen" xml:space="preserve">
@@ -404,7 +405,8 @@ Note that if you enter new name, existing file won't be renamed automatically, y
     <value>Use unpacked files</value>
   </data>
   <data name="GameParam_Direct_Hint" xml:space="preserve">
-    <value>Read game resources not only from .mpq archives, but also from the "data" folder in game directory which take precedence.
+    <value>Read game resources not only from .mpq archives, but also from the "data" folder which take precedence.
+The "data" folder must be in the same directory as the executable file you use to launch the game.
 Activating this option is highly recommended.</value>
   </data>
   <data name="GameParam_nosave" xml:space="preserve">
@@ -461,7 +463,7 @@ This option is needed to enable some modifications.</value>
     <value>Mouse cursor doesn't leave window</value>
   </data>
   <data name="GameParam_nofixaspect" xml:space="preserve">
-    <value>Don't maintain aspect ratio</value>
+    <value>Don't maintain window aspect ratio</value>
   </data>
   <data name="WindowedHeight" xml:space="preserve">
     <value>Game window height:</value>
@@ -615,7 +617,7 @@ Example: -w -direct</value>
     <value>Notes</value>
   </data>
   <data name="Notes1" xml:space="preserve">
-    <value>    Origin point is in the bottom left corner.</value>
+    <value>    Origin point for button positions is in the bottom left corner.</value>
   </data>
   <data name="Notes2" xml:space="preserve">
     <value>    If the value is negative, the position is assigned default value.</value>
@@ -796,5 +798,8 @@ Example: -w -direct</value>
   </data>
   <data name="ActiveSkillsUnassignmentOneForOne_Hint" xml:space="preserve">
     <value>Ignore skill points received per level up setting.</value>
+  </data>
+  <data name="Notes0" xml:space="preserve">
+    <value>    Origin point for window position is in the upper left corner.</value>
   </data>
 </root>
