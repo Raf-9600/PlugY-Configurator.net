@@ -564,6 +564,13 @@ namespace PlugY_Configurator.ViewModels
                 else Param = Param.Replace("-w", "");
 
                 OnPropertyChanged();
+
+                if (ActiveWindowed != value)
+                {
+                    ActiveWindowed = value;
+                }
+                _model.GlideWindowed((value || ActiveWindowed) && Param.Contains("-3dfx"));
+
             }
         }
 
@@ -692,6 +699,7 @@ namespace PlugY_Configurator.ViewModels
                 else Param = Param.Replace("-3dfx", "");
 
                 OnPropertyChanged();
+                _model.GlideWindowed((GameParam_WindowMode || ActiveWindowed) && value);
             }
         }
         #endregion
@@ -864,6 +872,11 @@ namespace PlugY_Configurator.ViewModels
 
                 _activeWindowed = value;
                 OnPropertyChanged();
+
+
+                    GameParam_WindowMode = value;
+                
+
             }
         }
 

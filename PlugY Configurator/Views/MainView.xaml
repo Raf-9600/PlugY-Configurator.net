@@ -301,6 +301,7 @@
                                     Controls:TextBoxHelper.UseFloatingWatermark="True"
                                     Controls:TextBoxHelper.Watermark="{loc:Loc Param}"
                                     Controls:TextBoxHelper.WatermarkAlignment="Center"
+                                    IsReadOnly="True"
                                     Style="{StaticResource MahApps.Styles.TextBox.Search}"
                                     Text="{Binding Param, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                     ToolTip="{loc:Loc Param_Hint}" />

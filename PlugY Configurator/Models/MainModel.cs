@@ -216,6 +216,21 @@ namespace PlugY_Configurator.Models
             else return mainStr + " " + newStr;
         }
 
+        private bool? _glideWindowed;
+        public void GlideWindowed(bool? enab)
+        {
+            if (enab == _glideWindowed)
+                return;
+            _glideWindowed = enab;
+
+            using RegistryKey registryHKCU = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry32);
+            if (registryHKCU != null)
+            {
+                RegistryKey regGlideCU = registryHKCU.CreateSubKey(@"SOFTWARE\GLIDE3toOpenGL");
+                regGlideCU?.SetValue("windowed", Convert.ToInt32(enab));
+            }
+        }
+
 
     }
 }
