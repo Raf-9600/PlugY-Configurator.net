@@ -21,6 +21,7 @@ using ControlzEx.Theming;
 using System.Collections.ObjectModel;
 using PlugY_Configurator.Resources.Translation;
 using System.Diagnostics;
+using System.Threading;
 
 namespace PlugY_Configurator.ViewModels
 {
@@ -208,84 +209,54 @@ namespace PlugY_Configurator.ViewModels
 
         public MainViewModel()
         {
-            // Если в Винде тёмная тема, то включаем её и в программе
-            if (!_model.DetectLightTheme())
-                ThemeManager.Current.ChangeTheme(System.Windows.Application.Current, "Dark.Crimson");
-
-            DpiScale dpi = VisualTreeHelper.GetDpi(new System.Windows.Controls.Control());
-            double screenRealWidth = SystemParameters.PrimaryScreenWidth * dpi.DpiScaleX;
-
-            //if (currentUICulture == "ru") MainWindowWidth = 1330;
-            if (MainWindowWidth > screenRealWidth)
-                MainWindowWidth = screenRealWidth - 20;
-
-
-            string workFile = string.Empty;
-
-            string[] args = Environment.GetCommandLineArgs();
-
-            if (args.Length > 1)
-                workFile = _model.FindPlugyIni(args);
-
-
-
-            string currentUICulture;
-            var sett = Models.Settings.Get();
-            if (sett != null)
+            try
             {
-                currentUICulture = sett.Value.Lng;
+                DpiScale dpi = VisualTreeHelper.GetDpi(new System.Windows.Controls.Control());
+                double screenRealWidth = SystemParameters.PrimaryScreenWidth * dpi.DpiScaleX;
 
-                if (string.IsNullOrEmpty(workFile))
-                    workFile = sett.Value.PathPlugyIni;
-            }
-            else
-            {
-                currentUICulture = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
-            }
+                //if (currentUICulture == "ru") MainWindowWidth = 1330;
+                if (MainWindowWidth > screenRealWidth)
+                    MainWindowWidth = screenRealWidth - 20;
 
 
-            for (int i = 0; i < Sttngs_Languages.Count; i++)
-            {
-                if (Sttngs_Languages[i].TwoLetterISOLanguageName == currentUICulture)
+                string workFile = string.Empty;
+
+                string[] args = Environment.GetCommandLineArgs();
+
+                if (args.Length > 1)
+                    workFile = _model.FindPlugyIni(args);
+
+
+
+                if (!File.Exists(workFile))
                 {
-                    Sttngs_Languages_Index = i;
-                    break;
+                    workFile = _model.FindWorkDir("PlugY.ini");
+                    workFile = Path.Combine(workFile, "PlugY.ini");
                 }
-            }
 
-            if (Sttngs_Languages_Index == -1)
-            {
-                currentUICulture = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
-                for (int i = 0; i < Sttngs_Languages.Count; i++)
-                {
-                    if (Sttngs_Languages[i].TwoLetterISOLanguageName == currentUICulture)
-                    {
-                        Sttngs_Languages_Index = i;
-                        break;
-                    }
-                }
-            }
+                if (!File.Exists(workFile))
+                    workFile = App._mainSettings.Get().installationPath;
+                
 
-            if (!File.Exists(workFile))
-            {
-                workFile = _model.FindWorkDir("PlugY.ini");
-                workFile = Path.Combine(workFile, "PlugY.ini");
-            }
-
-            if (File.Exists(workFile))
-                PlugyFullPath = workFile;
-            else
-            {
-                findPIni:
-                MessageBoxResult msgBx = MessageBox.Show(lang.PlugYiniNotFound_Question, lang.PlugYiniNotFound_Heading, MessageBoxButton.OKCancel, MessageBoxImage.Error);
-                if (msgBx == MessageBoxResult.OK)
-                {
-                    PlugYRefresh_Click.Execute(null);
-                    if (string.IsNullOrEmpty(PlugyFullPath))
-                        goto findPIni;
-                }
+                if (File.Exists(workFile))
+                    PlugyFullPath = workFile;
                 else
-                    Environment.Exit(0);
+                {
+                findPIni:
+                    MessageBoxResult msgBx = MessageBox.Show(lang.PlugYiniNotFound_Question, lang.PlugYiniNotFound_Heading, MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                    if (msgBx == MessageBoxResult.OK)
+                    {
+                        PlugYRefresh_Click.Execute(null);
+                        if (string.IsNullOrEmpty(PlugyFullPath))
+                            goto findPIni;
+                    }
+                    else
+                        Environment.Exit(0);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(lang.Error, e.Message, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -293,12 +264,19 @@ namespace PlugY_Configurator.ViewModels
         {
             get
             {
-                return new RelayCommand<RoutedEventArgs>(async (args) =>
+                return new RelayCommand<RoutedEventArgs>( (args) =>
                 {
-                    // Выравниваем окно по центру
-                    Rect workArea = System.Windows.SystemParameters.WorkArea;
-                    Application.Current.MainWindow.Left = (workArea.Width - Application.Current.MainWindow.ActualWidth) / 2 + workArea.Left;
-                    Application.Current.MainWindow.Top = (workArea.Height - Application.Current.MainWindow.ActualHeight) / 2 + workArea.Top;
+                    try
+                    {
+                        // Выравниваем окно по центру
+                        Rect workArea = System.Windows.SystemParameters.WorkArea;
+                        Application.Current.MainWindow.Left = (workArea.Width - Application.Current.MainWindow.ActualWidth) / 2 + workArea.Left;
+                        Application.Current.MainWindow.Top = (workArea.Height - Application.Current.MainWindow.ActualHeight) / 2 + workArea.Top;
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(lang.Error, e.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 });
             }
         }
@@ -307,24 +285,36 @@ namespace PlugY_Configurator.ViewModels
         {
             get
             {
-                return new RelayCommand<EventArgs>(async (args) =>
+                return new RelayCommand<EventArgs>( (_) =>
                 {
-                    System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-                    dispatcherTimer.Tick += async (sender, args) =>
-                    {
-                        await Task.Run(() =>
+                    string[] args = Environment.GetCommandLineArgs();
+                    args.Contains("UpdateSuccessfully");
+
+                        System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+                        dispatcherTimer.Tick += async (sender, args) =>
                         {
-                            if (_model.UpdateFind())
-                                NewVer_Visab = Visibility.Visible;
-                        });
+                            dispatcherTimer.Stop();
 
+                            try
+                            {
+                                if (await _model.UpdateFind())
+                                {
+                                    NewVer_Visab = Visibility.Visible;
+                                    InfoFlyout_Text = lang.NewVerFlyout_UpdateFailed;
+                                }
+                                else InfoFlyout_Text = lang.NewVerFlyout_UpdateSucces;
 
-                        dispatcherTimer.Stop();
-                    };
+                                if (Environment.GetCommandLineArgs().Contains("UpdateSuccessfully"))
+                                    Info_Flyout_Open = true;
+                            }
+                            catch (Exception)
+                            { }
+                        };
 
-                    dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-                    dispatcherTimer.Start();
-                });
+                        dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 500);
+                        dispatcherTimer.Start();
+
+            });
             }
         }
 
@@ -334,7 +324,7 @@ namespace PlugY_Configurator.ViewModels
             {
                 return new RelayCommand<CancelEventArgs>((args) =>
                 {
-                    Models.Settings.Save(new Models.Settings.MainSettings(Sttngs_Languages[Sttngs_Languages_Index].TwoLetterISOLanguageName, PlugyFullPath));
+                    App.SaveJson(Sttngs_Languages[Sttngs_Languages_Index].TwoLetterISOLanguageName, PlugyFullPath);
                 });
             }
         }
@@ -355,10 +345,10 @@ namespace PlugY_Configurator.ViewModels
 
         #region MainSettings
 
-        public ObservableCollection<CultureInfo> Sttngs_Languages { get; set; } = new ObservableCollection<CultureInfo> { new CultureInfo("ru"),  new CultureInfo("de"), new CultureInfo("en") };
+        public ObservableCollection<CultureInfo> Sttngs_Languages { get; set; } = App.GuiLanguagesList;
 
 
-        private int _sttngs_Languages_Index = -1;
+        private int _sttngs_Languages_Index = App.GuiLanguagesNum;
         public int Sttngs_Languages_Index
         {
             get { return _sttngs_Languages_Index; }
@@ -367,11 +357,8 @@ namespace PlugY_Configurator.ViewModels
                 if (value != _sttngs_Languages_Index)
                 {
                     if (value != -1)
-                    {
-                        CultureInfo cultInfoValue = Sttngs_Languages[value];
-                        WpfLocalization.TranslationSource.Instance.CurrentCulture = cultInfoValue; // меняем локализацию xaml
-                        System.Threading.Thread.CurrentThread.CurrentUICulture = cultInfoValue; // меняем локализацию в коде
-                    }
+                        App.SetLocalGUI(value);
+
 
                     _sttngs_Languages_Index = value;
                     OnPropertyChanged();
@@ -408,15 +395,83 @@ namespace PlugY_Configurator.ViewModels
         {
             get
             {
-                return _newVer_Click ?? (_newVer_Click = new RelayCommand(() =>
+                return _newVer_Click ?? (_newVer_Click = new RelayCommand(async () =>
                 {
-                    var psi = new ProcessStartInfo
-                    {
-                        FileName = @"https://github.com/Raf-9600/PlugY-Configurator/releases",
-                        UseShellExecute = true
-                    };
-                    Process.Start(psi);
 
+                    var mySettings = new MetroDialogSettings()
+                    {
+                        AffirmativeButtonText = lang.NewVerDlg_Btn_Automat,
+                        NegativeButtonText = lang.NewVerDlg_Btn_Manual,
+                        FirstAuxiliaryButtonText = lang.NewVerDlg_Btn_NotUpdate,
+                        DefaultButtonFocus = MessageDialogResult.Affirmative,
+                        AnimateHide = false
+                    };
+
+                    MetroWindow _metroWindow = Application.Current.MainWindow as MetroWindow;
+                    MessageDialogResult dlgResult = await _metroWindow.ShowMessageAsync(lang.NewVerDlg_Title, lang.NewVerDlg_Content, MessageDialogStyle.AffirmativeAndNegativeAndSingleAuxiliary, mySettings);
+
+                    if (dlgResult == MessageDialogResult.Negative)
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = @"https://github.com/Raf-9600/PlugY-Configurator/releases",
+                            UseShellExecute = true
+                        });
+
+                    if (dlgResult == MessageDialogResult.Affirmative)
+                    {
+                        var progressSettings = new MetroDialogSettings()
+                        {
+                            NegativeButtonText = "Отменить",
+                            AnimateShow = false,
+                            AnimateHide = true
+                        };
+
+                        var controller = await _metroWindow.ShowProgressAsync(lang.NewVerPrgs_Title, lang.NewVerPrgs_Content, settings: progressSettings);
+                        controller.SetCancelable(true);
+
+                        CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
+                        CancellationToken token = cancelTokenSource.Token;
+
+
+                        controller.Canceled += (_, d) => { cancelTokenSource.Cancel(); };
+
+                        var pi = new Progress<double>();
+                        pi.ProgressChanged += (_, d) => { controller.SetProgress(d / 100); };
+
+
+                        string main = Process.GetCurrentProcess().MainModule.FileName;
+                        string dir = Path.GetDirectoryName(main);
+
+                        string fileName = Path.GetFileNameWithoutExtension(main);
+                        string ext = Path.GetExtension(main);
+
+                        string destMain = _model.GetUniqueFileNameFromPath(dir, ext, fileName + "_");
+
+                        bool updateError = false;
+                        try
+                        {
+                            await _model.DownloadFileAsync(_model.UrlNewVer, destMain, pi, token, false);
+                            _model.SelfUpdate(destMain);
+                        }
+                        catch (System.Exception ex)
+                        {
+                            if (!controller.IsCanceled)
+                                InfoFlyout_Text = $"{ex.Source}\t{ex.Message}";
+                            else InfoFlyout_Text = lang.NewVerFlyout_UpdateCancel;
+
+                            if (File.Exists(destMain))
+                                File.Delete(destMain);
+
+                            updateError = true;
+                        }
+
+                        await controller.CloseAsync();
+
+                        if (updateError)
+                            Info_Flyout_Open = true;
+
+                        //controller.SetIndeterminate();
+                    }
                 }));
             }
         }
@@ -441,6 +496,8 @@ namespace PlugY_Configurator.ViewModels
             {
                 return _plugYRefresh_Click ?? (_plugYRefresh_Click = new RelayCommand(() =>
                 {
+                    string d2InstallPath = _model.FindInstalledDiablo2();
+
                     string pIni = _model.DlgFindFile("PlugY.ini", $"PlugY.ini|PlugY.ini|{lang.DlgFolderPlugyIni_AllIni}|*.ini|{lang.DlgFolderPlugyIni_AllFiles}|*.*", ".ini", _model.FindInstalledDiablo2());
 
                     if(!string.IsNullOrEmpty(pIni))
@@ -448,6 +505,26 @@ namespace PlugY_Configurator.ViewModels
 
                 }));
             }
+        }
+
+        private bool _info_Flyout_Open;
+        public bool Info_Flyout_Open
+        {
+            get { return _info_Flyout_Open; }
+            set 
+            {
+                //if (!value) InfoFlyout_Text = string.Empty;
+
+                _info_Flyout_Open = value; 
+                OnPropertyChanged(); 
+            }
+        }
+
+        private string _infoFlyout_Text;
+        public string InfoFlyout_Text
+        {
+            get { return _infoFlyout_Text; }
+            set { _infoFlyout_Text = value; OnPropertyChanged(); }
         }
 
         #region LaunchParam_Flyout

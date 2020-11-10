@@ -10,7 +10,7 @@ namespace PlugY_Configurator.Models
     {
         private INIFile _iniPlugy;
         private INIFile _iniDefault = null;
-        public bool NotSet = false;
+        public bool NotSet = true;
 
         private List<string> _avlblLngs;
 

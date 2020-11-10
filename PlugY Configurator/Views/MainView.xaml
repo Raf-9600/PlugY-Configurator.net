@@ -10,7 +10,7 @@
     xmlns:local="clr-namespace:PlugY_Configurator.ViewModels"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:resx="clr-namespace:PlugY_Configurator.Resources.Translation"
-    Title="PlugY Configurator"
+    Title="{Binding PlugyFullPath}"
     Width="{Binding MainWindowWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
     Height="595"
     loc:Translation.ResourceManager="{x:Static resx:lang.ResourceManager}"
@@ -20,6 +20,7 @@
     GlowBrush="Black"
     ResizeMode="CanMinimize"
     ShowMaxRestoreButton="False"
+    TitleCharacterCasing="Normal"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <!--
@@ -149,6 +150,14 @@
             <Setter Property="Orientation" Value="Horizontal" />
         </Style>
 
+        <Style TargetType="{x:Type Controls:Flyout}">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.Accent}" />
+            <Setter Property="IsPinned" Value="False" />
+            <Setter Property="Theme" Value="Adapt" />
+            <Setter Property="CloseButtonVisibility" Value="Collapsed" />
+        </Style>
+
     </Window.Resources>
 
     <Controls:MetroWindow.WindowButtonCommands>
@@ -164,14 +173,29 @@
             </Controls:FlyoutsControl.Resources>
 
             <Controls:Flyout
+                x:Name="Info_Flyout"
+                IsOpen="{Binding Info_Flyout_Open}"
+                Position="Top"
+                TitleVisibility="Visible">
+
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Margin="10"
+                            FontSize="18"
+                            Text="{Binding InfoFlyout_Text}" />
+                    </StackPanel>
+                </ScrollViewer>
+
+            </Controls:Flyout>
+
+            <Controls:Flyout
                 x:Name="Param_Flyout"
-                BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
-                BorderThickness="1"
-                CloseButtonVisibility="Collapsed"
                 IsOpen="{Binding Param_Flyout_Open}"
-                IsPinned="False"
                 Position="Left"
-                Theme="Adapt"
                 TitleVisibility="Visible">
 
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">

@@ -1,0 +1,63 @@
+﻿<Controls:MetroWindow
+    x:Class="PlugY_Configurator.View.ChooseLngView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Select Language"
+    Width="272"
+    Height="196"
+    BorderThickness="1"
+    GlowBrush="DarkRed"
+    ResizeMode="NoResize"
+    ShowCloseButton="True"
+    ShowIconOnTitleBar="True"
+    ShowMaxRestoreButton="False"
+    ShowMinButton="False"
+    ShowTitleBar="True"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+
+    <StackPanel
+        Margin="15,5"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Center"
+        Orientation="Vertical">
+        <TextBlock
+            Name="SelectLanguageLabel"
+            Margin="0,10"
+            FontSize="14"
+            Text="Select the language to use during the installation:"
+            TextWrapping="Wrap" />
+
+        <ComboBox
+            Name="LangCmbBox"
+            Margin="0,10"
+            DisplayMemberPath="NativeName"
+            SelectedIndex="{Binding Sttngs_Languages_Index, Mode=TwoWay}"
+            SelectionChanged="FormLangChange_CmbBox_SelectionChanged" />
+
+        <StackPanel
+            Margin="0,10"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+
+            <Button
+                Name="ButtonOK"
+                Width="75"
+                Margin="5,0"
+                Click="bttnOk_Click"
+                Content="OK"
+                IsEnabled="False" />
+
+            <Button
+                Name="ButtonCancel"
+                Width="75"
+                Margin="5,0,0,0"
+                Click="bttnExit_Click"
+                Content="Cancel" />
+
+        </StackPanel>
+    </StackPanel>
+</Controls:MetroWindow>

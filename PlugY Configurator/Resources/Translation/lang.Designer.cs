@@ -93,7 +93,7 @@ namespace PlugY_Configurator.Resources.Translation {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Все файлы.
+        ///   Ищет локализованную строку, похожую на All files.
         /// </summary>
         public static string DlgFolderPlugyIni_AllFiles {
             get {
@@ -102,11 +102,20 @@ namespace PlugY_Configurator.Resources.Translation {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Все .ini.
+        ///   Ищет локализованную строку, похожую на All .ini files.
         /// </summary>
         public static string DlgFolderPlugyIni_AllIni {
             get {
                 return ResourceManager.GetString("DlgFolderPlugyIni_AllIni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Error.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
             }
         }
         
@@ -127,7 +136,106 @@ namespace PlugY_Configurator.Resources.Translation {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на PlugY.ini не найден.
+        ///   Ищет локализованную строку, похожую на Automatically.
+        /// </summary>
+        public static string NewVerDlg_Btn_Automat {
+            get {
+                return ResourceManager.GetString("NewVerDlg_Btn_Automat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Manually.
+        /// </summary>
+        public static string NewVerDlg_Btn_Manual {
+            get {
+                return ResourceManager.GetString("NewVerDlg_Btn_Manual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Don&apos;t update.
+        /// </summary>
+        public static string NewVerDlg_Btn_NotUpdate {
+            get {
+                return ResourceManager.GetString("NewVerDlg_Btn_NotUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на How would you like to update the application?.
+        /// </summary>
+        public static string NewVerDlg_Content {
+            get {
+                return ResourceManager.GetString("NewVerDlg_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на New version found.
+        /// </summary>
+        public static string NewVerDlg_Title {
+            get {
+                return ResourceManager.GetString("NewVerDlg_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Application update canceled.
+        /// </summary>
+        public static string NewVerFlyout_UpdateCancel {
+            get {
+                return ResourceManager.GetString("NewVerFlyout_UpdateCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Automatic application update failed. Try updating manually..
+        /// </summary>
+        public static string NewVerFlyout_UpdateFailed {
+            get {
+                return ResourceManager.GetString("NewVerFlyout_UpdateFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Application updated successfully.
+        /// </summary>
+        public static string NewVerFlyout_UpdateSucces {
+            get {
+                return ResourceManager.GetString("NewVerFlyout_UpdateSucces", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Cancel.
+        /// </summary>
+        public static string NewVerPrgs_Btn_Cancel {
+            get {
+                return ResourceManager.GetString("NewVerPrgs_Btn_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Downloading new application version..
+        /// </summary>
+        public static string NewVerPrgs_Content {
+            get {
+                return ResourceManager.GetString("NewVerPrgs_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Updating....
+        /// </summary>
+        public static string NewVerPrgs_Title {
+            get {
+                return ResourceManager.GetString("NewVerPrgs_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на PlugY.ini not found.
         /// </summary>
         public static string PlugYiniNotFound_Heading {
             get {
@@ -136,7 +244,7 @@ namespace PlugY_Configurator.Resources.Translation {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Укажете месторасположение PlugY.ini?.
+        ///   Ищет локализованную строку, похожую на Select PlugY.ini?.
         /// </summary>
         public static string PlugYiniNotFound_Question {
             get {

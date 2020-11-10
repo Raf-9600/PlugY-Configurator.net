@@ -8,49 +8,65 @@ using System.Text.Json;
 
 namespace PlugY_Configurator.Models
 {
-    class Settings
+    public class Settings
     {
-        static private string settingsFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Raf-9600", "PlugY Configurator", "Settings.json");
+        private string settingsFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Raf-9600", "PlugY Configurator", "Settings.json");
 
         [Serializable]
         public struct MainSettings
         {
-            public string Lng { get; set; }
-            public string PathPlugyIni { get; set; }
+            public string Language { get; set; }
+            public string PlugyIni { get; set; }
 
-            public MainSettings(string lng, string pathPlugyIni)
+            public MainSettings(string language, string plugyIni)
             {
-                Lng = lng;
-                PathPlugyIni = pathPlugyIni;
+                Language = language;
+                PlugyIni = plugyIni;
             }
         }
 
-        private static string startSettingsStr;
-        public static MainSettings? Get()
+        private MainSettings json = new MainSettings("", "");
+        public (string language, string installationPath) Get()
         {
-            if (File.Exists(settingsFile))
-                try
-                {
-                    startSettingsStr = File.ReadAllText(settingsFile);
-                    return JsonSerializer.Deserialize<MainSettings>(startSettingsStr);
-                }
-                catch (Exception)
-                { return null; }
-            return null;
+            if (string.IsNullOrEmpty(json.Language) && string.IsNullOrEmpty(json.PlugyIni))
+                if (File.Exists(settingsFile))
+                    try
+                    {
+                        json = JsonSerializer.Deserialize<MainSettings>(File.ReadAllText(settingsFile));
+
+                        return (json.Language, json.PlugyIni);
+                    }
+                    catch (Exception)
+                    { return (json.Language, json.PlugyIni); }
+
+            string instPath = string.Empty;
+
+            if (!string.IsNullOrEmpty(json.PlugyIni) && Directory.Exists(json.PlugyIni))
+                instPath = json.PlugyIni;
+
+            return (json.Language, instPath);
         }
 
-        public static void Save(MainSettings result)
+        JsonSerializerOptions jsonOption = new JsonSerializerOptions { WriteIndented = true };
+        public void Save(string language = "", string installationPath = "")
         {
-            string endSettingsStr = JsonSerializer.Serialize(result, new JsonSerializerOptions { WriteIndented = true });
+            if (string.IsNullOrEmpty(installationPath))
+                installationPath = json.PlugyIni;
 
-            if (startSettingsStr == endSettingsStr)
+            if (string.IsNullOrEmpty(language))
+                language = json.Language;
+
+
+            if ((installationPath == json.PlugyIni) && (language == json.Language))
                 return;
+
 
             string p = Path.GetDirectoryName(settingsFile);
             Directory.CreateDirectory(p);
 
-
-            File.WriteAllText(settingsFile, endSettingsStr);
+            json = new MainSettings(language, installationPath);
+            byte[] jsonUtf8Bytes = JsonSerializer.SerializeToUtf8Bytes(json, jsonOption);
+            File.WriteAllBytes(settingsFile, jsonUtf8Bytes);
         }
 
     }

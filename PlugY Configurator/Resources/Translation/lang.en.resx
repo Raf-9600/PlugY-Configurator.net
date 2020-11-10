@@ -802,4 +802,40 @@ Example: -w -direct</value>
   <data name="Notes0" xml:space="preserve">
     <value>    Origin point for window position is in the upper left corner.</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="NewVerDlg_Btn_Automat" xml:space="preserve">
+    <value>Automatically</value>
+  </data>
+  <data name="NewVerDlg_Btn_Manual" xml:space="preserve">
+    <value>Manually</value>
+  </data>
+  <data name="NewVerDlg_Btn_NotUpdate" xml:space="preserve">
+    <value>Don't update</value>
+  </data>
+  <data name="NewVerDlg_Content" xml:space="preserve">
+    <value>How would you like to update the application?</value>
+  </data>
+  <data name="NewVerDlg_Title" xml:space="preserve">
+    <value>New version found</value>
+  </data>
+  <data name="NewVerFlyout_UpdateCancel" xml:space="preserve">
+    <value>Application update canceled</value>
+  </data>
+  <data name="NewVerFlyout_UpdateFailed" xml:space="preserve">
+    <value>Automatic application update failed. Try updating manually.</value>
+  </data>
+  <data name="NewVerFlyout_UpdateSucces" xml:space="preserve">
+    <value>Application updated successfully</value>
+  </data>
+  <data name="NewVerPrgs_Btn_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NewVerPrgs_Content" xml:space="preserve">
+    <value>Downloading new application version.</value>
+  </data>
+  <data name="NewVerPrgs_Title" xml:space="preserve">
+    <value>Updating...</value>
+  </data>
 </root>

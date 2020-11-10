@@ -803,4 +803,40 @@
   <data name="Notes0" xml:space="preserve">
     <value>    За нулевую точку расположения окна берётся крайняя левая позиция по горизонтали и крайняя верхняя позиция по вертикали.</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="NewVerDlg_Btn_Automat" xml:space="preserve">
+    <value>Автоматически</value>
+  </data>
+  <data name="NewVerDlg_Btn_Manual" xml:space="preserve">
+    <value>Вручную</value>
+  </data>
+  <data name="NewVerDlg_Btn_NotUpdate" xml:space="preserve">
+    <value>Не обновлять</value>
+  </data>
+  <data name="NewVerDlg_Content" xml:space="preserve">
+    <value>Каким образом вы хотите обновить программу?</value>
+  </data>
+  <data name="NewVerDlg_Title" xml:space="preserve">
+    <value>Найдена новая версия</value>
+  </data>
+  <data name="NewVerFlyout_UpdateCancel" xml:space="preserve">
+    <value>Обновление программы отменено.</value>
+  </data>
+  <data name="NewVerFlyout_UpdateFailed" xml:space="preserve">
+    <value>Автоматическое обновление программы не удалось. Попробуйте обновить её вручную.</value>
+  </data>
+  <data name="NewVerFlyout_UpdateSucces" xml:space="preserve">
+    <value>Программа успешно обновлена</value>
+  </data>
+  <data name="NewVerPrgs_Btn_Cancel" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="NewVerPrgs_Content" xml:space="preserve">
+    <value>Скачивание новой версии программы.</value>
+  </data>
+  <data name="NewVerPrgs_Title" xml:space="preserve">
+    <value>Обновление...</value>
+  </data>
 </root>
